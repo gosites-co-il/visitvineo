@@ -1,0 +1,224 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import Button from './Button.astro';
+import { type Lang, getNavLinks, useTranslatedPath, useTranslations } from '../i18n/ui';
+
+interface Props {
+	lang: Lang;
+	currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const navLinks = getNavLinks(lang);
+---
+
+<header class="header" id="site-header">
+	<div class="header__inner container">
+		<a href={translatePath('/')} class="header__logo" aria-label="Playa Venao Adventures home">
+			<img src="/brand/logo-badge.svg" alt="" width="52" height="52" />
+			<span class="header__logo-text">
+				<span class="header__logo-name">Playa Venao</span>
+				<span class="header__logo-sub">Adventures</span>
+			</span>
+		</a>
+
+		<nav class="header__nav" aria-label="Main">
+			{
+				navLinks.map(({ label, href }) => (
+					<a href={href}>{label}</a>
+				))
+			}
+		</nav>
+
+		<div class="header__actions">
+			<LanguageSwitcher lang={lang} currentPath={currentPath} />
+			<Button href={translatePath('/contact')} variant="primary" class="header__book-btn">
+				{t('nav.bookNow')}
+			</Button>
+			<button class="header__menu-btn" aria-label="Open menu" aria-expanded="false" id="menu-toggle">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+		</div>
+	</div>
+
+	<div class="header__mobile-nav" id="mobile-nav" hidden>
+		{
+			navLinks.map(({ label, href }) => (
+				<a href={href}>{label}</a>
+			))
+		}
+		<Button href={translatePath('/contact')} variant="primary">{t('nav.bookNow')}</Button>
+	</div>
+</header>
+
+<script>
+	const header = document.getElementById('site-header');
+	const toggle = document.getElementById('menu-toggle');
+	const mobileNav = document.getElementById('mobile-nav');
+
+	window.addEventListener('scroll', () => {
+		header?.classList.toggle('header--scrolled', window.scrollY > 40);
+	});
+
+	toggle?.addEventListener('click', () => {
+		const open = mobileNav?.hasAttribute('hidden');
+		if (open) {
+			mobileNav?.removeAttribute('hidden');
+			toggle?.setAttribute('aria-expanded', 'true');
+		} else {
+			mobileNav?.setAttribute('hidden', '');
+			toggle?.setAttribute('aria-expanded', 'false');
+		}
+	});
+
+	mobileNav?.querySelectorAll('a').forEach((link) => {
+		link.addEventListener('click', () => {
+			mobileNav?.setAttribute('hidden', '');
+			toggle?.setAttribute('aria-expanded', 'false');
+		});
+	});
+</script>
+
+<style>
+	.header {
+		position: fixed;
+		inset-inline: 0;
+		top: 0;
+		z-index: 100;
+		height: var(--header-height);
+		background: rgba(255, 255, 255, 0.85);
+		backdrop-filter: blur(8px);
+		border-bottom: 1px solid transparent;
+		transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+	}
+
+	.header--scrolled {
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(12px);
+		border-bottom: 1px solid var(--color-border);
+		box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+	}
+
+	.header__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 100%;
+		gap: 1rem;
+	}
+
+	.header__logo {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+		flex-shrink: 0;
+	}
+
+	.header__logo-text {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.1;
+	}
+
+	.header__logo-name {
+		font-family: var(--font-display-en);
+		font-size: 1rem;
+		color: var(--color-orange);
+	}
+
+	.header__logo-sub {
+		font-size: 0.65rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		opacity: 0.8;
+	}
+
+	.header__nav {
+		display: flex;
+		gap: clamp(0.75rem, 2vw, 1.5rem);
+	}
+
+	.header__nav a {
+		font-size: 0.875rem;
+		font-weight: 600;
+		opacity: 0.85;
+		transition: opacity var(--transition), color var(--transition);
+		white-space: nowrap;
+	}
+
+	.header__nav a:hover {
+		opacity: 1;
+		color: var(--color-orange);
+	}
+
+	.header__actions {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.header__book-btn {
+		padding: 0.6rem 1.25rem;
+		font-size: 0.875rem;
+	}
+
+	.header__menu-btn {
+		display: none;
+		flex-direction: column;
+		gap: 5px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+	}
+
+	.header__menu-btn span {
+		display: block;
+		width: 24px;
+		height: 2px;
+		background: var(--color-text);
+		border-radius: 2px;
+		transition: transform var(--transition);
+	}
+
+	.header__mobile-nav {
+		display: none;
+		flex-direction: column;
+		gap: 1.25rem;
+		padding: 1.5rem 1rem 2rem;
+		background: var(--color-bg);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.header__mobile-nav a {
+		font-size: 1.1rem;
+		font-weight: 600;
+		padding-block: 0.25rem;
+	}
+
+	@media (max-width: 900px) {
+		.header__nav,
+		.header__book-btn {
+			display: none;
+		}
+
+		.header__menu-btn {
+			display: flex;
+		}
+
+		.header__mobile-nav:not([hidden]) {
+			display: flex;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.header__logo-text {
+			display: none;
+		}
+	}
+</style>

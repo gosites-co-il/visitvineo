@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="58" fill="#0a0a0a" stroke="#8fa68a" stroke-width="2"/>
+  <path d="M20 72 Q40 58 60 72 T100 72" stroke="#5b8fa8" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M25 78 Q45 66 60 78 T95 78" stroke="#5b8fa8" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M30 84 Q48 74 60 84 T90 84" stroke="#5b8fa8" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <circle cx="60" cy="52" r="14" fill="#e8a84c"/>
+  <path d="M48 62 L52 48 L56 58 L60 42 L64 58 L68 48 L72 62 Z" fill="#8fa68a"/>
+  <path d="M54 62 L58 50 L62 62 Z" fill="#7a9475"/>
+  <path d="M62 62 L66 50 L70 62 Z" fill="#7a9475"/>
+  <text x="60" y="28" text-anchor="middle" fill="#e8a84c" font-family="Georgia, serif" font-size="9" font-weight="bold" letter-spacing="1">PLAYA VENAO</text>
+  <text x="60" y="104" text-anchor="middle" fill="#f5f0eb" font-family="Arial, sans-serif" font-size="7" font-weight="bold" letter-spacing="2">ADVENTURES</text>
+</svg>

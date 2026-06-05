@@ -1,0 +1,83 @@
+---
+import WaveDivider from '../WaveDivider.astro';
+import { type Lang, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const tiles = [
+	{ gradient: 'linear-gradient(135deg, #1a3a4a, #5b8fa8)', span: 'large' },
+	{ gradient: 'linear-gradient(135deg, #8a5a1a, #e8a84c)', span: 'small' },
+	{ gradient: 'linear-gradient(135deg, #3a4a3a, #8fa68a)', span: 'small' },
+	{ gradient: 'linear-gradient(135deg, #2a4a5a, #5b8fa8)', span: 'small' },
+	{ gradient: 'linear-gradient(135deg, #5a3a6a, #c4b5c9)', span: 'small' },
+	{ gradient: 'linear-gradient(135deg, #4a3a2a, #e8a84c)', span: 'small' },
+];
+---
+
+<WaveDivider variant="blue" />
+<section class="gallery section" id="gallery">
+	<div class="container">
+		<h2 class="section-heading gallery__title">{t('home.gallery.title')}</h2>
+		<div class="gallery__grid">
+			{
+				tiles.map(({ gradient, span }) => (
+					<div
+						class:list={['gallery__item', `gallery__item--${span}`]}
+						style={`background: ${gradient}`}
+					></div>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.gallery {
+		background: var(--color-bg);
+	}
+
+	.gallery__title {
+		margin-bottom: 2.5rem;
+	}
+
+	.gallery__grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-auto-rows: 180px;
+		gap: 0.75rem;
+	}
+
+	.gallery__item {
+		border-radius: 12px;
+		overflow: hidden;
+		position: relative;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.gallery__item--large {
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+
+	.gallery__item:hover {
+		transform: scale(1.02);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+	}
+
+	@media (max-width: 767px) {
+		.gallery__grid {
+			grid-template-columns: repeat(2, 1fr);
+			grid-auto-rows: 140px;
+		}
+
+		.gallery__item--large {
+			grid-column: span 2;
+			grid-row: span 1;
+		}
+	}
+</style>

@@ -1,0 +1,164 @@
+{
+	"meta": {
+		"homeTitle": "Playa Venao Adventures | Surf, Fish & Explore Panama",
+		"homeDescription": "Surf trips, surf camps, fishing adventures and jeep tours in Playa Venao, Panama. Local experts, small groups, golden-hour vibes."
+	},
+	"nav": {
+		"surf": "Surf",
+		"fishing": "Fishing",
+		"jeepTrips": "Jeep Trips",
+		"horseTrips": "Horse Trips",
+		"lodging": "Lodging",
+		"bookNow": "Book Now"
+	},
+	"pages": {
+		"comingSoon": "Page coming soon."
+	},
+	"categories": {
+		"bookCta": "Book Now",
+		"surf": {
+			"intro": "World-class waves, warm water, and local guides who know every break at Playa Venao.",
+			"slides": [
+				{
+					"title": "Daily Surf Sessions",
+					"text": "Morning and afternoon sessions for all levels — boards and guidance included."
+				},
+				{
+					"title": "Learn to Surf",
+					"text": "First time? Our patient instructors will have you standing on your first day."
+				},
+				{
+					"title": "Advanced Coaching",
+					"text": "Refine your technique on Playa Venao's legendary point break with pro tips."
+				}
+			]
+		},
+		"fishing": {
+			"intro": "Sunset boat trips, full gear, and the thrill of the catch off Panama's Pacific coast.",
+			"slides": [
+				{
+					"title": "Sunset Fishing Trips",
+					"text": "Head out at golden hour — rods, bait, and cold drinks ready on board."
+				},
+				{
+					"title": "Deep Sea Adventures",
+					"text": "Target trophy fish in deep Pacific waters with experienced local captains."
+				},
+				{
+					"title": "Coastal Catch",
+					"text": "Relaxed inshore trips perfect for families and first-time anglers."
+				}
+			]
+		},
+		"jeep": {
+			"intro": "Explore hidden beaches, jungle trails, and coastal viewpoints off the beaten path.",
+			"slides": [
+				{
+					"title": "Coastal Off-Road",
+					"text": "Ride rugged trails along the coast to secret beaches and scenic overlooks."
+				},
+				{
+					"title": "Jungle & Beach Combo",
+					"text": "From dusty backroads to pristine sand — a full day of exploration."
+				},
+				{
+					"title": "Sunset Jeep Tour",
+					"text": "Chase the sunset along the coast with stops for photos and cold drinks."
+				}
+			]
+		},
+		"horse": {
+			"intro": "Ride along the beach and through tropical trails with gentle, well-trained horses.",
+			"slides": [
+				{
+					"title": "Beach Horseback Riding",
+					"text": "Gallop or stroll along Playa Venao's sandy shores at your own pace."
+				},
+				{
+					"title": "Trail Rides",
+					"text": "Wind through lush hills and coastal paths with an experienced guide."
+				},
+				{
+					"title": "Sunset Rides",
+					"text": "The most magical hour — horseback on the beach as the sun dips below the horizon."
+				}
+			]
+		},
+		"lodging": {
+			"intro": "Comfortable stays steps from the ocean — wake up and walk to the waves.",
+			"slides": [
+				{
+					"title": "Ocean-View Rooms",
+					"text": "Bright, airy rooms with tropical vibes and steps from the beach."
+				},
+				{
+					"title": "Surf Camp Packages",
+					"text": "Stay + surf bundles — accommodation and daily sessions in one easy package."
+				},
+				{
+					"title": "Group & Long Stays",
+					"text": "Discounts for groups and extended stays. Make Playa Venao your home base."
+				}
+			]
+		}
+	},
+	"home": {
+		"hero": {
+			"badge": "Playa Venao, Panama",
+			"title": "Ride the Wave. Live the Adventure.",
+			"subtitle": "Surf trips, camps, fishing & jeep tours in tropical paradise",
+			"ctaExplore": "Explore Adventures",
+			"ctaBook": "Book Now"
+		},
+		"intro": {
+			"title": "Your gateway to Panama's hidden coast",
+			"body": "Playa Venao Adventures is a local crew offering unforgettable surf sessions, multi-day camps, sunset fishing, and off-road jeep explorations — all wrapped in good vibes and golden-hour energy."
+		},
+		"adventures": {
+			"title": "Pick Your Adventure",
+			"surfTrips": {
+				"title": "Surf Trips",
+				"teaser": "Daily sessions for every skill level on world-class breaks."
+			},
+			"surfCamps": {
+				"title": "Surf Camps",
+				"teaser": "Multi-day immersion — coaching, community, and ocean time."
+			},
+			"fishing": {
+				"title": "Fishing Trips",
+				"teaser": "Sunset boat trips with gear included and stories guaranteed."
+			},
+			"jeep": {
+				"title": "Jeep Trips",
+				"teaser": "Off-road coastal exploration beyond the beaten path."
+			}
+		},
+		"gallery": {
+			"title": "Life at Playa Venao"
+		},
+		"whyUs": {
+			"title": "Why Playa Venao Adventures",
+			"local": {
+				"title": "Local experts",
+				"body": "Born and raised on this coast — we know every break, trail, and sunset spot."
+			},
+			"levels": {
+				"title": "All skill levels",
+				"body": "From first-time surfers to seasoned pros, every adventure is tailored to you."
+			},
+			"groups": {
+				"title": "Small groups",
+				"body": "Personal experiences, not tourist-bus energy. Just you, the crew, and the ocean."
+			}
+		},
+		"cta": {
+			"title": "Ready for your adventure?",
+			"subtitle": "Tell us what you're dreaming of — we'll make it happen.",
+			"button": "Get in Touch"
+		}
+	},
+	"footer": {
+		"tagline": "Surf · Fish · Explore · Repeat",
+		"copyright": "© 2026 Playa Venao Adventures. All rights reserved."
+	}
+}

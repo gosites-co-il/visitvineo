@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import {
+	type Lang,
+	isRtl,
+	useTranslatedPath,
+	useTranslations,
+} from '../i18n/ui';
+
+interface Props {
+	lang: Lang;
+	currentPath: string;
+	title?: string;
+	description?: string;
+}
+
+const { lang, currentPath, title, description } = Astro.props;
+const t = useTranslations(lang);
+const dir = isRtl(lang) ? 'rtl' : 'ltr';
+const pageTitle = title ?? t('meta.homeTitle');
+const pageDescription = description ?? t('meta.homeDescription');
+const site = Astro.site?.href ?? 'https://visitvineo.com';
+const translatePath = useTranslatedPath(lang);
+const heUrl = new URL(translatePath(currentPath, 'he'), site).href;
+const enUrl = new URL(translatePath(currentPath, 'en'), site).href;
+---
+
+<!doctype html>
+<html lang={lang} dir={dir}>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/brand/logo-icon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={pageDescription} />
+		<title>{pageTitle}</title>
+		<link rel="alternate" hreflang="he" href={heUrl} />
+		<link rel="alternate" hreflang="en" href={enUrl} />
+		<link rel="alternate" hreflang="x-default" href={heUrl} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content={lang === 'he' ? 'he_IL' : 'en_US'} />
+	</head>
+	<body>
+		<Header lang={lang} currentPath={currentPath} />
+		<main>
+			<slot />
+		</main>
+		<Footer lang={lang} />
+	</body>
+</html>
+
+<style is:global>
+	main {
+		padding-top: var(--header-height);
+	}
+</style>

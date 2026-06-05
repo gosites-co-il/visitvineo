@@ -1,0 +1,132 @@
+---
+import { type Lang, useTranslatedPath } from '../i18n/ui';
+
+interface Props {
+	title: string;
+	teaser: string;
+	href: string;
+	gradient: string;
+	accent: 'blue' | 'orange' | 'sage' | 'lavender';
+	lang: Lang;
+}
+
+const { title, teaser, href, gradient, accent, lang } = Astro.props;
+const translatePath = useTranslatedPath(lang);
+---
+
+<article class={`service-card service-card--${accent}`}>
+	<a href={translatePath(href)} class="service-card__link">
+		<div class="service-card__image-wrap" style={`background: ${gradient}`}></div>
+		<div class="service-card__body">
+			<h3 class="service-card__title">{title}</h3>
+			<p class="service-card__teaser">{teaser}</p>
+			<span class="service-card__arrow icon--directional" aria-hidden="true">→</span>
+		</div>
+	</a>
+</article>
+
+<style>
+	.service-card {
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		background: var(--color-bg);
+		border: 1px solid var(--color-border);
+		transition:
+			transform var(--transition),
+			border-color var(--transition),
+			box-shadow var(--transition);
+	}
+
+	.service-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-card);
+	}
+
+	.service-card--blue:hover {
+		border-color: var(--color-dusty-blue);
+		box-shadow: 0 8px 32px rgba(91, 143, 168, 0.35);
+	}
+
+	.service-card--orange:hover {
+		border-color: var(--color-orange);
+		box-shadow: 0 8px 32px rgba(232, 168, 76, 0.35);
+	}
+
+	.service-card--sage:hover {
+		border-color: var(--color-sage);
+		box-shadow: 0 8px 32px rgba(143, 166, 138, 0.35);
+	}
+
+	.service-card--lavender:hover {
+		border-color: var(--color-lavender);
+		box-shadow: 0 8px 32px rgba(196, 181, 201, 0.35);
+	}
+
+	.service-card__link {
+		display: block;
+		height: 100%;
+	}
+
+	.service-card__image-wrap {
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.service-card__image-wrap::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent);
+	}
+
+	.service-card__body {
+		padding: 1.25rem 1.5rem 1.5rem;
+		position: relative;
+	}
+
+	.service-card--blue .service-card__body {
+		border-top: 3px solid var(--color-dusty-blue);
+	}
+
+	.service-card--orange .service-card__body {
+		border-top: 3px solid var(--color-orange);
+	}
+
+	.service-card--sage .service-card__body {
+		border-top: 3px solid var(--color-sage);
+	}
+
+	.service-card--lavender .service-card__body {
+		border-top: 3px solid var(--color-lavender);
+	}
+
+	.service-card__title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 0.35rem;
+	}
+
+	.service-card__teaser {
+		font-size: 0.9rem;
+		opacity: 0.75;
+		padding-inline-end: 2rem;
+	}
+
+	.service-card__arrow {
+		position: absolute;
+		inset-inline-end: 1.25rem;
+		bottom: 1.5rem;
+		font-size: 1.25rem;
+		color: var(--color-orange);
+		transition: transform var(--transition);
+	}
+
+	.service-card:hover .service-card__arrow {
+		transform: translateX(4px);
+	}
+
+	[dir='rtl'] .service-card:hover .service-card__arrow {
+		transform: translateX(-4px);
+	}
+</style>

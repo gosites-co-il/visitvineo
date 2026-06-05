@@ -1,0 +1,23 @@
+---
+import Hero from './Hero.astro';
+import Intro from './Intro.astro';
+import AdventuresGrid from './AdventuresGrid.astro';
+import GalleryMosaic from './GalleryMosaic.astro';
+import WhyUs from './WhyUs.astro';
+import BookCta from './BookCta.astro';
+import { type Lang } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+	currentPath: string;
+}
+
+const { lang } = Astro.props;
+---
+
+<Hero lang={lang} />
+<Intro lang={lang} />
+<AdventuresGrid lang={lang} />
+<GalleryMosaic lang={lang} />
+<WhyUs lang={lang} />
+<BookCta lang={lang} />

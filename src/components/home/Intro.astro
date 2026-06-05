@@ -1,0 +1,47 @@
+---
+import { type Lang, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="intro section">
+	<div class="container intro__grid">
+		<h2 class="intro__title display-heading">{t('home.intro.title')}</h2>
+		<p class="intro__body">{t('home.intro.body')}</p>
+	</div>
+</section>
+
+<style>
+	.intro {
+		background: var(--color-sage);
+		color: var(--color-black);
+	}
+
+	.intro__grid {
+		display: grid;
+		grid-template-columns: 1fr 1.2fr;
+		gap: clamp(2rem, 5vw, 4rem);
+		align-items: center;
+	}
+
+	.intro__title {
+		font-size: clamp(1.75rem, 4vw, 2.75rem);
+	}
+
+	.intro__body {
+		font-size: 1.1rem;
+		line-height: 1.7;
+		opacity: 0.9;
+	}
+
+	@media (max-width: 768px) {
+		.intro__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

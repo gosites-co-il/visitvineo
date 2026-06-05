@@ -1,0 +1,82 @@
+---
+import ServiceCard from '../ServiceCard.astro';
+import WaveDivider from '../WaveDivider.astro';
+import { type Lang, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const adventures = [
+	{
+		key: 'surfTrips',
+		href: '/surf-trips',
+		accent: 'blue' as const,
+		gradient: 'linear-gradient(160deg, #1a3a4a, #5b8fa8)',
+	},
+	{
+		key: 'surfCamps',
+		href: '/surf-camps',
+		accent: 'orange' as const,
+		gradient: 'linear-gradient(160deg, #8a5a1a, #e8a84c)',
+	},
+	{
+		key: 'fishing',
+		href: '/fishing-trips',
+		accent: 'sage' as const,
+		gradient: 'linear-gradient(160deg, #3a4a3a, #8fa68a)',
+	},
+	{
+		key: 'jeep',
+		href: '/jeep-trips',
+		accent: 'lavender' as const,
+		gradient: 'linear-gradient(160deg, #4a3a5a, #c4b5c9)',
+	},
+];
+---
+
+<WaveDivider variant="sage" flip />
+<section class="adventures section" id="adventures">
+	<div class="container">
+		<h2 class="section-heading adventures__title">{t('home.adventures.title')}</h2>
+		<div class="adventures__grid">
+			{
+				adventures.map(({ key, href, accent, gradient }) => (
+					<ServiceCard
+						lang={lang}
+						title={t(`home.adventures.${key}.title`)}
+						teaser={t(`home.adventures.${key}.teaser`)}
+						href={href}
+						gradient={gradient}
+						accent={accent}
+					/>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.adventures {
+		background: var(--color-bg);
+	}
+
+	.adventures__title {
+		margin-bottom: 3rem;
+	}
+
+	.adventures__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+
+	@media (max-width: 767px) {
+		.adventures__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
