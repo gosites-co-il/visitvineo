@@ -1,0 +1,94 @@
+---
+export type BrandIconName = 'waves' | 'sun' | 'palm' | 'birds' | 'fishing';
+export type BrandAccent = 'sage' | 'orange' | 'blue' | 'lavender';
+
+const brandColors: Record<BrandAccent, string> = {
+	sage: '#86B877',
+	orange: '#F8B75B',
+	blue: '#8ECECD',
+	lavender: '#E2A3C6',
+};
+
+interface Props {
+	name: BrandIconName;
+	accent?: BrandAccent;
+	size?: number;
+}
+
+const { name, accent = 'blue', size = 48 } = Astro.props;
+const stroke = brandColors[accent];
+const sw = 2;
+const cap = 'round';
+const join = 'round';
+---
+
+<svg
+	class="brand-icon"
+	width={size}
+	height={size}
+	viewBox="0 0 64 64"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+	aria-hidden="true"
+>
+	{
+		name === 'waves' && (
+			<g stroke={stroke} stroke-width={sw} stroke-linecap={cap} stroke-linejoin={join}>
+				<path d="M8 44 C18 36, 26 36, 32 44 S46 52, 56 44" />
+				<path d="M8 36 C18 28, 26 28, 32 36 S46 44, 56 36" opacity="0.8" />
+				<path d="M8 28 C18 20, 26 20, 32 28 S46 36, 56 28" opacity="0.6" />
+			</g>
+		)
+	}
+	{
+		name === 'sun' && (
+			<g stroke={stroke} stroke-width={sw} stroke-linecap={cap}>
+				<path d="M8 42 H56" />
+				<path d="M32 42 A14 14 0 0 1 32 14" fill="none" />
+				<path d="M32 8 V4 M32 14 L28 10 M32 14 L36 10" />
+				<path d="M20 18 L17 14 M44 18 L47 14" />
+				<path d="M14 28 H10 M54 28 H50" />
+				<path d="M20 36 L17 40 M44 36 L47 40" />
+			</g>
+		)
+	}
+	{
+		name === 'palm' && (
+			<g stroke={stroke} stroke-width={sw} stroke-linecap={cap} stroke-linejoin={join}>
+				<path d="M28 54 C30 44, 32 34, 36 22" />
+				<path d="M36 22 C28 20, 18 16, 12 12" />
+				<path d="M36 22 C42 16, 50 12, 54 10" />
+				<path d="M36 22 C34 14, 34 8, 38 6" />
+				<path d="M36 22 C40 14, 44 8, 48 8" />
+				<path d="M24 54 H40" />
+			</g>
+		)
+	}
+	{
+		name === 'birds' && (
+			<g stroke={stroke} stroke-width={sw} stroke-linecap={cap} stroke-linejoin={join} fill="none">
+				<path d="M10 28 C12 26, 14 26, 16 28" />
+				<path d="M18 24 C20 22, 22 22, 24 24" />
+				<path d="M26 20 C28 18, 30 18, 32 20" />
+				<path d="M34 22 C36 20, 38 20, 40 22" />
+				<path d="M42 26 C44 24, 46 24, 48 26" />
+			</g>
+		)
+	}
+	{
+		name === 'fishing' && (
+			<g stroke={stroke} stroke-width={sw} stroke-linecap={cap} stroke-linejoin={join} fill="none">
+				<path d="M12 52 C20 40, 28 28, 40 18 L44 14" />
+				<path d="M44 14 V28" />
+				<path d="M44 28 C44 36, 40 42, 36 46" />
+				<path d="M36 46 L34 50 M36 46 L38 50" />
+			</g>
+		)
+	}
+</svg>
+
+<style>
+	.brand-icon {
+		display: block;
+	}
+</style>

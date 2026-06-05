@@ -1,164 +1,163 @@
 {
 	"meta": {
-		"homeTitle": "Playa Venao Adventures | Surf, Fish & Explore Panama",
-		"homeDescription": "Surf trips, surf camps, fishing adventures and jeep tours in Playa Venao, Panama. Local experts, small groups, golden-hour vibes."
+		"homeTitle": "Playa Venao Adventures | Pacific Coast Escape in Panama",
+		"homeDescription": "A hidden gem in Central America. Wild nature, open ocean, mountains and waterfalls — all in one place."
 	},
 	"nav": {
-		"surf": "Surf",
-		"fishing": "Fishing",
-		"jeepTrips": "Jeep Trips",
-		"horseTrips": "Horse Trips",
+		"about": "About",
 		"lodging": "Lodging",
-		"bookNow": "Book Now"
+		"culinary": "Culinary",
+		"attractions": "Experiences",
+		"packages": "Packages",
+		"contact": "Contact",
+		"bookNow": "Book Your Trip"
 	},
-	"pages": {
-		"comingSoon": "Page coming soon."
-	},
-	"categories": {
-		"bookCta": "Book Now",
-		"surf": {
-			"intro": "World-class waves, warm water, and local guides who know every break at Playa Venao.",
-			"slides": [
-				{
-					"title": "Daily Surf Sessions",
-					"text": "Morning and afternoon sessions for all levels — boards and guidance included."
-				},
-				{
-					"title": "Learn to Surf",
-					"text": "First time? Our patient instructors will have you standing on your first day."
-				},
-				{
-					"title": "Advanced Coaching",
-					"text": "Refine your technique on Playa Venao's legendary point break with pro tips."
-				}
-			]
-		},
-		"fishing": {
-			"intro": "Sunset boat trips, full gear, and the thrill of the catch off Panama's Pacific coast.",
-			"slides": [
-				{
-					"title": "Sunset Fishing Trips",
-					"text": "Head out at golden hour — rods, bait, and cold drinks ready on board."
-				},
-				{
-					"title": "Deep Sea Adventures",
-					"text": "Target trophy fish in deep Pacific waters with experienced local captains."
-				},
-				{
-					"title": "Coastal Catch",
-					"text": "Relaxed inshore trips perfect for families and first-time anglers."
-				}
-			]
-		},
-		"jeep": {
-			"intro": "Explore hidden beaches, jungle trails, and coastal viewpoints off the beaten path.",
-			"slides": [
-				{
-					"title": "Coastal Off-Road",
-					"text": "Ride rugged trails along the coast to secret beaches and scenic overlooks."
-				},
-				{
-					"title": "Jungle & Beach Combo",
-					"text": "From dusty backroads to pristine sand — a full day of exploration."
-				},
-				{
-					"title": "Sunset Jeep Tour",
-					"text": "Chase the sunset along the coast with stops for photos and cold drinks."
-				}
-			]
-		},
-		"horse": {
-			"intro": "Ride along the beach and through tropical trails with gentle, well-trained horses.",
-			"slides": [
-				{
-					"title": "Beach Horseback Riding",
-					"text": "Gallop or stroll along Playa Venao's sandy shores at your own pace."
-				},
-				{
-					"title": "Trail Rides",
-					"text": "Wind through lush hills and coastal paths with an experienced guide."
-				},
-				{
-					"title": "Sunset Rides",
-					"text": "The most magical hour — horseback on the beach as the sun dips below the horizon."
-				}
-			]
-		},
-		"lodging": {
-			"intro": "Comfortable stays steps from the ocean — wake up and walk to the waves.",
-			"slides": [
-				{
-					"title": "Ocean-View Rooms",
-					"text": "Bright, airy rooms with tropical vibes and steps from the beach."
-				},
-				{
-					"title": "Surf Camp Packages",
-					"text": "Stay + surf bundles — accommodation and daily sessions in one easy package."
-				},
-				{
-					"title": "Group & Long Stays",
-					"text": "Discounts for groups and extended stays. Make Playa Venao your home base."
-				}
-			]
-		}
+	"footer": {
+		"tagline": "Playa Venao, Panama — an experience, not just a destination",
+		"phone": "+972-52-557-8355",
+		"phoneLabel": "Phone",
+		"copyright": "© 2026 Playa Venao Adventures. All rights reserved."
 	},
 	"home": {
 		"hero": {
-			"badge": "Playa Venao, Panama",
-			"title": "Ride the Wave. Live the Adventure.",
-			"subtitle": "Surf trips, camps, fishing & jeep tours in tropical paradise",
-			"ctaExplore": "Explore Adventures",
-			"ctaBook": "Book Now"
+			"title": "Playa Venao, Panama — Your Perfect Escape on the Pacific Coast",
+			"subtitle": "A hidden gem in Central America. Wild nature, open ocean, mountains and waterfalls — all in one place.",
+			"cta": "Plan Your Trip"
 		},
-		"intro": {
-			"title": "Your gateway to Panama's hidden coast",
-			"body": "Playa Venao Adventures is a local crew offering unforgettable surf sessions, multi-day camps, sunset fishing, and off-road jeep explorations — all wrapped in good vibes and golden-hour energy."
+		"vibe": {
+			"title": "The Vibe",
+			"text": "Calm days, social nights. The perfect balance between quiet and connection. Slow mornings, sea air and nature. Evenings with people, music and good energy. Come solo, as a couple, or with your best friends — either way you'll never feel alone. It's easy to meet new people, and the overall feeling is less 'tourist' and more like joining a different way of life. Barefoot walks, laptops by the sea, sunset surf sessions and evenings together at beach bars."
 		},
-		"adventures": {
-			"title": "Pick Your Adventure",
-			"surfTrips": {
-				"title": "Surf Trips",
-				"teaser": "Daily sessions for every skill level on world-class breaks."
+		"whyUs": {
+			"title": "Why Travel With Us",
+			"local": {
+				"title": "Local Knowledge",
+				"body": "We know Playa Venao, Panama up close — local knowledge that makes all the difference."
 			},
-			"surfCamps": {
-				"title": "Surf Camps",
-				"teaser": "Multi-day immersion — coaching, community, and ocean time."
+			"care": {
+				"title": "We Handle Everything",
+				"body": "We take care of everything for you, from logistics to the smallest details."
+			},
+			"personal": {
+				"title": "Personalized",
+				"body": "A trip tailored exactly to you. Solo, as a couple, or as a family — we customize everything. You focus on the experience; we handle the rest."
+			}
+		}
+	},
+	"about": {
+		"metaTitle": "About Us",
+		"title": "About Us",
+		"intro": "Playa Venao Adventures — your team for an authentic Panama vacation. We connect people, nature and experiences — without feeling like tourists.",
+		"body": "Playa Venao is more than a surf destination. It's an international community, a boho-chic beach vibe, and a lifestyle that blends work, adventure and rest. We're here to plan, book and care for everything — so you can simply be."
+	},
+	"lodging": {
+		"metaTitle": "Lodging Options",
+		"title": "Lodging Options",
+		"intro": "Comfortable, pleasant places — all within walking distance of the beach. Travel your way, feel right at home.",
+		"filterAll": "All",
+		"categories": {
+			"hostels": {
+				"title": "Social Hostels",
+				"body": "Ideal for solo travelers, surfers and those seeking a young, social atmosphere. Most are very close to the beach with shared lounges, pools, bars and weekly social events."
+			},
+			"boutique": {
+				"title": "Beach Boutique Hotels",
+				"body": "Perfect for couples and those seeking a calmer, design-forward stay. Private rooms, pools, restaurants and ocean views."
+			},
+			"apartments": {
+				"title": "Apartments & Guest Complexes",
+				"body": "Great for friend groups, families and longer stays. Includes kitchen, living room and workspaces for independent living."
+			},
+			"villas": {
+				"title": "Private Jungle & Mountain Villas",
+				"body": "Quiet natural settings offering full privacy, open ocean views, sunsets, private pools and direct connection to tropical nature."
+			},
+			"resorts": {
+				"title": "Resorts & Premium Experience",
+				"body": "Full hospitality with pools, restaurants, spa areas, yoga spaces and direct beach access — everything in one place."
+			}
+		}
+	},
+	"culinary": {
+		"metaTitle": "Culinary Destination",
+		"title": "Culinary Destination",
+		"intro": "Good food, great energy. Culinary abundance and good vibes all day long. Eat well, feel better, enjoy every moment.",
+		"restaurants": {
+			"yasu": {
+				"name": "Yasu",
+				"description": "Modern Greek flavors on the waterfront. Fresh meals, tropical atmosphere, clean and vibrant."
+			},
+			"sol": {
+				"name": "Sol",
+				"description": "Fresh bowls and tropical vibes. Light, colorful and full of energy."
+			},
+			"coleos": {
+				"name": "Coleos",
+				"description": "Middle Eastern with Asian touches. Comfort food exactly as it should be."
+			},
+			"michaela": {
+				"name": "Michaela",
+				"description": "Local flavors with a homestyle touch. Simple, fresh and full of taste."
+			}
+		}
+	},
+	"attractions": {
+		"metaTitle": "Experiences & Attractions",
+		"title": "Experiences, Attractions & Surf",
+		"surf": {
+			"title": "Surfing",
+			"body": "Playa Venao is one of Central America's most renowned and consistent surf destinations, with waves year-round for beginners and advanced surfers. Surf schools, camps (like SHOKOGI SURF SCHOOL), board rentals and a strong community."
+		},
+		"nightlife": {
+			"title": "Nightlife",
+			"body": "Beach parties, pool parties, live shows, DJ nights and sunset parties in a free, international vibe."
+		},
+		"activitiesTitle": "More Activities",
+		"activities": {
+			"waterfalls": {
+				"title": "Waterfall Tours",
+				"body": "Hidden spots in Panama's jungles — refresh in natural, cool pools."
 			},
 			"fishing": {
 				"title": "Fishing Trips",
-				"teaser": "Sunset boat trips with gear included and stories guaranteed."
+				"body": "Head out to sea for a true local adventure (Tuna, Mahi Mahi, Snapper, Roosterfish) — relax and enjoy the ocean."
 			},
-			"jeep": {
-				"title": "Jeep Trips",
-				"teaser": "Off-road coastal exploration beyond the beaten path."
+			"iguana": {
+				"title": "Isla Iguana",
+				"body": "Crystal turquoise waters beside white sand. The perfect spot for snorkeling and relaxation."
+			},
+			"horses": {
+				"title": "Horseback Riding",
+				"body": "Ride through wild nature with open panoramic views."
 			}
-		},
-		"gallery": {
-			"title": "Life at Playa Venao"
-		},
-		"whyUs": {
-			"title": "Why Playa Venao Adventures",
-			"local": {
-				"title": "Local experts",
-				"body": "Born and raised on this coast — we know every break, trail, and sunset spot."
-			},
-			"levels": {
-				"title": "All skill levels",
-				"body": "From first-time surfers to seasoned pros, every adventure is tailored to you."
-			},
-			"groups": {
-				"title": "Small groups",
-				"body": "Personal experiences, not tourist-bus energy. Just you, the crew, and the ocean."
-			}
-		},
-		"cta": {
-			"title": "Ready for your adventure?",
-			"subtitle": "Tell us what you're dreaming of — we'll make it happen.",
-			"button": "Get in Touch"
 		}
 	},
-	"footer": {
-		"tagline": "Surf · Fish · Explore · Repeat",
-		"copyright": "© 2026 Playa Venao Adventures. All rights reserved."
+	"packages": {
+		"metaTitle": "Vacation Packages",
+		"title": "Vacation Packages & Events",
+		"basic": {
+			"title": "Basic Vacation Package",
+			"body": "Includes lodging, trip planning and personalized transport options. Attractions booked separately based on weather."
+		},
+		"full": {
+			"title": "Vacation Package with Attractions",
+			"body": "Includes lodging and a variety of attractions and tours throughout your stay."
+		},
+		"corporate": {
+			"title": "Corporate Events & Private Groups",
+			"body": "Custom company retreats combining workspaces, group lodging, private meals, team activities, beach parties and wellness workshops."
+		},
+		"cta": "Request a Quote"
+	},
+	"contact": {
+		"metaTitle": "Contact",
+		"title": "Contact",
+		"intro": "Ready to plan your Playa Venao vacation? Talk to us — we'd love to help.",
+		"phone": "+972525578355",
+		"whatsapp": "Message on WhatsApp",
+		"formName": "Name",
+		"formPhone": "Phone",
+		"formMessage": "Tell us about the trip you're dreaming of",
+		"formSubmit": "Send"
 	}
 }

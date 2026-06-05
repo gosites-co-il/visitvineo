@@ -1,0 +1,109 @@
+---
+import { type Lang, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const phone = t('contact.phone');
+const phoneHref = `tel:${phone}`;
+const whatsappHref = `https://wa.me/972525578355?text=${encodeURIComponent('שלום, אני מעוניין/ת לתכנן חופשה בפלאיה ונאו')}`;
+---
+
+<section class="section contact-page">
+	<div class="container contact-page__inner">
+		<h1 class="display-heading contact-page__title">{t('contact.title')}</h1>
+		<p class="contact-page__intro">{t('contact.intro')}</p>
+
+		<div class="contact-page__actions">
+			<a href={phoneHref} class="btn btn--primary">{phone}</a>
+			<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn btn--secondary">
+				{t('contact.whatsapp')}
+			</a>
+		</div>
+
+		<form class="contact-form card" action="#" method="post">
+			<div class="contact-form__field">
+				<label for="name">{t('contact.formName')}</label>
+				<input type="text" id="name" name="name" required />
+			</div>
+			<div class="contact-form__field">
+				<label for="phone-input">{t('contact.formPhone')}</label>
+				<input type="tel" id="phone-input" name="phone" required dir="ltr" />
+			</div>
+			<div class="contact-form__field">
+				<label for="message">{t('contact.formMessage')}</label>
+				<textarea id="message" name="message" rows="5" required></textarea>
+			</div>
+			<button type="submit" class="btn btn--primary contact-form__submit">{t('contact.formSubmit')}</button>
+		</form>
+	</div>
+</section>
+
+<style>
+	.contact-page__inner {
+		max-width: 520px;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.contact-page__title {
+		font-size: clamp(2rem, 5vw, 2.75rem);
+		margin-bottom: 1rem;
+	}
+
+	.contact-page__intro {
+		color: var(--color-text-muted);
+		margin-bottom: 2rem;
+		line-height: 1.8;
+	}
+
+	.contact-page__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+		margin-bottom: 3rem;
+	}
+
+	.contact-form {
+		text-align: start;
+		padding: 2rem;
+	}
+
+	.contact-form__field {
+		margin-bottom: 1.25rem;
+	}
+
+	.contact-form__field label {
+		display: block;
+		font-size: 0.875rem;
+		font-weight: 600;
+		margin-bottom: 0.4rem;
+	}
+
+	.contact-form__field input,
+	.contact-form__field textarea {
+		width: 100%;
+		padding: 0.75rem 1rem;
+		border: 1px solid rgba(0, 0, 0, 0.12);
+		border-radius: var(--radius-sm);
+		font-family: inherit;
+		font-size: 1rem;
+		transition: border-color var(--transition);
+		background: var(--color-bg);
+	}
+
+	.contact-form__field input:focus,
+	.contact-form__field textarea:focus {
+		outline: none;
+		border-color: var(--color-orange);
+	}
+
+	.contact-form__submit {
+		width: 100%;
+		margin-top: 0.5rem;
+	}
+</style>

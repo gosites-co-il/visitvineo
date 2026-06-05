@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CulinaryPage from '../components/pages/CulinaryPage.astro';
+import { useTranslations } from '../i18n/ui';
+
+const t = useTranslations('he');
+---
+
+<BaseLayout lang="he" currentPath="/culinary" title={`${t('culinary.metaTitle')} | Playa Venao Adventures`}>
+	<CulinaryPage lang="he" />
+</BaseLayout>

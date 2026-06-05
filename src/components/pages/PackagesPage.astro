@@ -1,0 +1,69 @@
+---
+import PageHero from '../PageHero.astro';
+import { type Lang, useTranslatedPath, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const packages = ['basic', 'full', 'corporate'] as const;
+---
+
+<PageHero
+	title={t('packages.title')}
+	image="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80"
+	fullHeight={false}
+/>
+
+<section class="section">
+	<div class="container packages">
+		{packages.map((id) => (
+			<article class="package card">
+				<div class="package__body">
+					<h3 class="package__title">{t(`packages.${id}.title`)}</h3>
+					<p class="package__text">{t(`packages.${id}.body`)}</p>
+					<a href={translatePath('/contact')} class="btn btn--primary package__cta">
+						{t('packages.cta')}
+					</a>
+				</div>
+			</article>
+		))}
+	</div>
+</section>
+
+<style>
+	.packages {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.package__body {
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.package__title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: var(--color-orange);
+	}
+
+	.package__text {
+		flex: 1;
+		color: var(--color-text-muted);
+		line-height: 1.8;
+		margin-bottom: 1.5rem;
+	}
+
+	.package__cta {
+		align-self: flex-start;
+	}
+</style>

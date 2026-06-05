@@ -1,5 +1,11 @@
 ---
-import CategoryPage from '../../components/CategoryPage.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LodgingPage from '../../components/pages/LodgingPage.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations('en');
 ---
 
-<CategoryPage lang="en" currentPath="/lodging" category="lodging" titleKey="nav.lodging" />
+<BaseLayout lang="en" currentPath="/lodging" title={`${t('lodging.metaTitle')} | Playa Venao Adventures`}>
+	<LodgingPage lang="en" />
+</BaseLayout>

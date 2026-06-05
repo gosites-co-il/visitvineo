@@ -1,0 +1,38 @@
+---
+import PageHero from '../PageHero.astro';
+import { type Lang, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<PageHero
+	title={t('about.title')}
+	subtitle={t('about.intro')}
+	image="https://images.unsplash.com/photo-1506929562879-bb421706ef21?w=1920&q=80"
+	fullHeight={false}
+/>
+
+<section class="section">
+	<div class="container about">
+		<p class="about__body">{t('about.body')}</p>
+	</div>
+</section>
+
+<style>
+	.about {
+		max-width: 42rem;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.about__body {
+		font-size: 1.15rem;
+		line-height: 1.9;
+		color: var(--color-text-muted);
+	}
+</style>

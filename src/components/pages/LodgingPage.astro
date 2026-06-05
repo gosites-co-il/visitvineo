@@ -1,0 +1,124 @@
+---
+import PageHero from '../PageHero.astro';
+import InfoCard from '../InfoCard.astro';
+import { type Lang, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const categories = [
+	{ id: 'hostels', image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80' },
+	{ id: 'boutique', image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80' },
+	{ id: 'apartments', image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80' },
+	{ id: 'villas', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80' },
+	{ id: 'resorts', image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80' },
+] as const;
+
+const filters = [{ id: 'all', label: t('lodging.filterAll') }, ...categories.map((c) => ({
+	id: c.id,
+	label: t(`lodging.categories.${c.id}.title`),
+}))];
+---
+
+<PageHero
+	title={t('lodging.title')}
+	subtitle={t('lodging.intro')}
+	image="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1920&q=80"
+	fullHeight={false}
+/>
+
+<section class="section lodging">
+	<div class="container">
+		<div class="lodging__filters" role="tablist">
+			{filters.map(({ id, label }, i) => (
+				<button
+					type="button"
+					class:list={['lodging__filter', { 'lodging__filter--active': i === 0 }]}
+					data-filter={id}
+					role="tab"
+					aria-selected={i === 0 ? 'true' : 'false'}
+				>
+					{label}
+				</button>
+			))}
+		</div>
+
+		<div class="lodging__grid" id="lodging-grid">
+			{categories.map(({ id, image }) => (
+				<div class="lodging__item" data-category={id}>
+					<InfoCard
+						image={image}
+						title={t(`lodging.categories.${id}.title`)}
+						body={t(`lodging.categories.${id}.body`)}
+					/>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<script>
+	const filters = document.querySelectorAll<HTMLButtonElement>('.lodging__filter');
+	const items = document.querySelectorAll<HTMLElement>('.lodging__item');
+
+	filters.forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const filter = btn.dataset.filter;
+			filters.forEach((b) => {
+				b.classList.toggle('lodging__filter--active', b === btn);
+				b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+			});
+			items.forEach((item) => {
+				const show = filter === 'all' || item.dataset.category === filter;
+				item.style.display = show ? '' : 'none';
+			});
+		});
+	});
+</script>
+
+<style>
+	.lodging__filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		justify-content: center;
+		margin-bottom: 2.5rem;
+	}
+
+	.lodging__filter {
+		padding: 0.55rem 1.25rem;
+		border-radius: var(--radius-pill);
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		background: var(--color-bg);
+		font-family: inherit;
+		font-size: 0.875rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all var(--transition);
+	}
+
+	.lodging__filter:hover {
+		border-color: var(--color-orange);
+		color: var(--color-orange);
+	}
+
+	.lodging__filter--active {
+		background: var(--color-orange);
+		border-color: var(--color-orange);
+		color: #fff;
+	}
+
+	.lodging__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.lodging__item {
+		transition: opacity 0.3s ease;
+	}
+</style>

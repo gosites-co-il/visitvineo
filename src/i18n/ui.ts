@@ -55,11 +55,12 @@ export function getNavLinks(lang: Lang) {
 	const translatePath = useTranslatedPath(lang);
 
 	return [
-		{ label: t('nav.surf'), href: translatePath('/surf-trips') },
-		{ label: t('nav.fishing'), href: translatePath('/fishing-trips') },
-		{ label: t('nav.jeepTrips'), href: translatePath('/jeep-trips') },
-		{ label: t('nav.horseTrips'), href: translatePath('/horse-trips') },
+		{ label: t('nav.about'), href: translatePath('/about') },
 		{ label: t('nav.lodging'), href: translatePath('/lodging') },
+		{ label: t('nav.culinary'), href: translatePath('/culinary') },
+		{ label: t('nav.attractions'), href: translatePath('/attractions') },
+		{ label: t('nav.packages'), href: translatePath('/packages') },
+		{ label: t('nav.contact'), href: translatePath('/contact') },
 	];
 }
 

@@ -1,26 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactPage from '../../components/pages/ContactPage.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations('en');
 ---
 
-<BaseLayout lang="en" currentPath="/contact" title="Contact | Playa Venao Adventures">
-	<section class="placeholder section">
-		<div class="container">
-			<h1 class="display-heading">Contact</h1>
-			<p>Booking page coming soon.</p>
-		</div>
-	</section>
+<BaseLayout lang="en" currentPath="/contact" title={`${t('contact.metaTitle')} | Playa Venao Adventures`}>
+	<ContactPage lang="en" />
 </BaseLayout>
-
-<style>
-	.placeholder {
-		min-height: 50vh;
-		display: flex;
-		align-items: center;
-		text-align: center;
-	}
-
-	.placeholder h1 {
-		font-size: 2.5rem;
-		margin-bottom: 1rem;
-	}
-</style>

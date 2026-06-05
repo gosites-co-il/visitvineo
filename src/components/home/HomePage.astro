@@ -1,23 +1,104 @@
 ---
-import Hero from './Hero.astro';
-import Intro from './Intro.astro';
-import AdventuresGrid from './AdventuresGrid.astro';
-import GalleryMosaic from './GalleryMosaic.astro';
-import WhyUs from './WhyUs.astro';
-import BookCta from './BookCta.astro';
-import { type Lang } from '../../i18n/ui';
+import PageHero from '../PageHero.astro';
+import InfoCard from '../InfoCard.astro';
+import { type Lang, useTranslatedPath, useTranslations } from '../../i18n/ui';
 
 interface Props {
 	lang: Lang;
-	currentPath: string;
 }
 
 const { lang } = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const whyItems = [
+	{ key: 'local', brandIcon: 'palm', iconAccent: 'sage' },
+	{ key: 'care', brandIcon: 'sun', iconAccent: 'orange' },
+	{ key: 'personal', brandIcon: 'birds', iconAccent: 'blue' },
+] as const;
 ---
 
-<Hero lang={lang} />
-<Intro lang={lang} />
-<AdventuresGrid lang={lang} />
-<GalleryMosaic lang={lang} />
-<WhyUs lang={lang} />
-<BookCta lang={lang} />
+<PageHero
+	title={t('home.hero.title')}
+	subtitle={t('home.hero.subtitle')}
+	image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
+	cta={{ label: t('home.hero.cta'), href: translatePath('/contact') }}
+/>
+
+<section class="section section--warm vibe">
+	<div class="container vibe__inner fade-up">
+		<h2 class="section-heading">{t('home.vibe.title')}</h2>
+		<p class="vibe__text">{t('home.vibe.text')}</p>
+	</div>
+</section>
+
+<section class="section why">
+	<div class="container">
+		<h2 class="section-heading">{t('home.whyUs.title')}</h2>
+		<div class="why__grid">
+			{whyItems.map(({ key, brandIcon, iconAccent }) => (
+				<InfoCard
+					brandIcon={brandIcon}
+					iconAccent={iconAccent}
+					title={t(`home.whyUs.${key}.title`)}
+					body={t(`home.whyUs.${key}.body`)}
+				/>
+			))}
+		</div>
+	</div>
+</section>
+
+<section class="section cta-band">
+	<div class="container cta-band__inner">
+		<h2 class="cta-band__title">{t('nav.bookNow')}</h2>
+		<a href={translatePath('/packages')} class="btn btn--secondary">{t('nav.packages')}</a>
+		<a href={translatePath('/contact')} class="btn btn--primary">{t('home.hero.cta')}</a>
+	</div>
+</section>
+
+<style>
+	.vibe__inner {
+		max-width: 52rem;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.vibe__text {
+		font-size: 1.15rem;
+		line-height: 1.9;
+		color: var(--color-text-muted);
+	}
+
+	.why__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+		margin-top: 2.5rem;
+	}
+
+	.cta-band {
+		background: linear-gradient(135deg, var(--color-sand) 0%, var(--color-bg-warm) 100%);
+	}
+
+	.cta-band__inner {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.cta-band__title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		width: 100%;
+		text-align: center;
+		margin-bottom: 0.5rem;
+	}
+
+	@media (max-width: 768px) {
+		.why__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

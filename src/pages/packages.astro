@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PackagesPage from '../components/pages/PackagesPage.astro';
+import { useTranslations } from '../i18n/ui';
+
+const t = useTranslations('he');
+---
+
+<BaseLayout lang="he" currentPath="/packages" title={`${t('packages.metaTitle')} | Playa Venao Adventures`}>
+	<PackagesPage lang="he" />
+</BaseLayout>
