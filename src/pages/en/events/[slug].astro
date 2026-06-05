@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import EventDetailPage from '../../../components/pages/EventDetailPage.astro';
+import { allEventSlugs, getEventBySlug } from '../../../data/events';
+import { useTranslations } from '../../../i18n/ui';
+
+export function getStaticPaths() {
+	return allEventSlugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const event = getEventBySlug(slug!);
+
+if (!event) {
+	return Astro.redirect('/en/events');
+}
+
+const t = useTranslations('en');
+const currentPath = `/events/${slug}`;
+---
+
+<BaseLayout
+	lang="en"
+	currentPath={currentPath}
+	title={`${t(`eventsDetail.${event.eventId}.metaTitle`)} | Playa Venao Adventures`}
+>
+	<EventDetailPage lang="en" eventId={event.eventId} heroImage={event.image} />
+</BaseLayout>

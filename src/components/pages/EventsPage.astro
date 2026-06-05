@@ -1,0 +1,130 @@
+---
+import PageHero from '../PageHero.astro';
+import EventCategoryCard from '../EventCategoryCard.astro';
+import { eventCategories, eventRetreats, eventServiceKeys } from '../../data/events';
+import { type Lang, useTranslatedPath, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+<PageHero
+	title={t('eventsPage.title')}
+	subtitle={t('eventsPage.heroSubtitle')}
+	image="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1920&q=80"
+	fullHeight={false}
+/>
+
+<section class="section">
+	<div class="container events-intro">
+		<h2 class="section-heading">{t('eventsPage.whyTitle')}</h2>
+		<p class="section-intro">{t('eventsPage.whyBody')}</p>
+
+		<h3 class="events-intro__services-title">{t('eventsPage.servicesTitle')}</h3>
+		<ul class="events-intro__services">
+			{eventServiceKeys.map((key) => (
+				<li>{t(`eventsPage.services.${key}`)}</li>
+			))}
+		</ul>
+	</div>
+</section>
+
+<section class="section section--warm">
+	<div class="container">
+		<h2 class="section-heading">{t('eventsPage.categoriesTitle')}</h2>
+		<div class="events-grid events-grid--categories">
+			{eventCategories.map(({ id, slug, image }, index) => (
+				<EventCategoryCard
+					href={translatePath(`/events/${slug}`)}
+					title={t(`eventsPage.categories.${id}.title`)}
+					excerpt={t(`eventsPage.categories.${id}.excerpt`)}
+					image={image}
+					readMore={t('eventsPage.readMore')}
+					reversed={index % 2 === 1}
+				/>
+			))}
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="container">
+		<h2 class="section-heading">{t('eventsPage.retreatsTitle')}</h2>
+		<p class="section-intro">{t('eventsPage.retreatsIntro')}</p>
+		<div class="events-grid">
+			{eventRetreats.map(({ id, slug, image }) => (
+				<EventCategoryCard
+					href={translatePath(`/events/${slug}`)}
+					title={t(`eventsPage.retreats.${id}.title`)}
+					excerpt={t(`eventsPage.retreats.${id}.excerpt`)}
+					image={image}
+					readMore={t('eventsPage.readMore')}
+				/>
+			))}
+		</div>
+	</div>
+</section>
+
+<section class="section events-cta">
+	<div class="container events-cta__inner">
+		<a href={translatePath('/contact')} class="btn btn--primary">{t('eventsPage.cta')}</a>
+	</div>
+</section>
+
+<style>
+	.events-intro__services-title {
+		font-family: var(--font-display);
+		font-size: 1.25rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 1.25rem;
+	}
+
+	.events-intro__services {
+		list-style: none;
+		max-width: 36rem;
+		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.events-intro__services li {
+		position: relative;
+		padding-inline-start: 1.5rem;
+		color: var(--color-text-muted);
+		line-height: 1.75;
+	}
+
+	.events-intro__services li::before {
+		content: '✓';
+		position: absolute;
+		inset-inline-start: 0;
+		color: var(--color-sage);
+		font-weight: 700;
+	}
+
+	.events-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 0.85rem;
+		margin-top: 2rem;
+		max-width: 40rem;
+		margin-inline: auto;
+		width: 100%;
+	}
+
+	.events-grid--categories {
+		max-width: none;
+		gap: 1rem;
+	}
+
+	.events-cta__inner {
+		text-align: center;
+	}
+</style>

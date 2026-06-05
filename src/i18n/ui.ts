@@ -55,11 +55,13 @@ export function getNavLinks(lang: Lang) {
 	const translatePath = useTranslatedPath(lang);
 
 	return [
-		{ label: t('nav.about'), href: translatePath('/about') },
+		{ label: t('nav.surf'), href: translatePath('/surf') },
+		{ label: t('nav.attractions'), href: translatePath('/attractions') },
 		{ label: t('nav.lodging'), href: translatePath('/lodging') },
 		{ label: t('nav.culinary'), href: translatePath('/culinary') },
-		{ label: t('nav.attractions'), href: translatePath('/attractions') },
 		{ label: t('nav.packages'), href: translatePath('/packages') },
+		{ label: t('nav.events'), href: translatePath('/events') },
+		{ label: t('nav.about'), href: translatePath('/about') },
 		{ label: t('nav.contact'), href: translatePath('/contact') },
 	];
 }

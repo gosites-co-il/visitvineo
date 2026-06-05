@@ -7,8 +7,10 @@
 		"about": "About",
 		"lodging": "Lodging",
 		"culinary": "Culinary",
-		"attractions": "Experiences",
+		"surf": "Surf",
+		"attractions": "Adventures & Attractions",
 		"packages": "Packages",
+		"events": "Event Production",
 		"contact": "Contact",
 		"bookNow": "Book Your Trip"
 	},
@@ -101,6 +103,30 @@
 			}
 		}
 	},
+	"surfPage": {
+		"metaTitle": "Surfing",
+		"title": "Surfing in Playa Venao",
+		"intro": "Playa Venao is one of Central America's most renowned and consistent surf destinations, with waves that work year-round for beginners and advanced surfers alike.",
+		"highlights": {
+			"yearRound": {
+				"title": "Year-Round Waves",
+				"body": "A consistent point break with reliable swells — great conditions in every season, perfect for flexible trip planning."
+			},
+			"allLevels": {
+				"title": "All Skill Levels",
+				"body": "Beginners learn on mellow, protected waves; advanced surfers enjoy stronger sections — everyone gets their wave."
+			},
+			"schools": {
+				"title": "Schools & Camps",
+				"body": "Surf schools, surf camps (like SHOKOGI SURF SCHOOL), board rentals, private and group lessons."
+			},
+			"community": {
+				"title": "Surf Community",
+				"body": "A strong international community — sunset sessions, social beach vibes, and real connections with people from around the world."
+			}
+		},
+		"cta": "Book a Surf Lesson"
+	},
 	"attractions": {
 		"metaTitle": "Experiences & Attractions",
 		"title": "Experiences, Attractions & Surf",
@@ -148,6 +174,157 @@
 			"body": "Custom company retreats combining workspaces, group lodging, private meals, team activities, beach parties and wellness workshops."
 		},
 		"cta": "Request a Quote"
+	},
+	"eventsPage": {
+		"metaTitle": "Event Production",
+		"title": "Private & Corporate Event Production in Panama",
+		"heroSubtitle": "Playa Venao Adventures",
+		"whyTitle": "Why produce your event with us?",
+		"whyBody": "Producing an event far from home in a foreign country requires real local knowledge — language, culture, logistics, transport, and the right vendors and lodging. For most people, managing this remotely is nearly impossible. That's why we're here. We live in Panama, know every corner, speak the language, and work with the most trusted local suppliers. We guide you hand in hand from early planning back home until the last guest boards their flight. Our goal is to bring everything under one roof so you arrive with peace of mind — no headaches, no small details to chase — knowing someone local is making sure everything runs smoothly and professionally.",
+		"servicesTitle": "Our full production package includes:",
+		"services": {
+			"planning": "Concept planning and a custom schedule",
+			"lodging": "Diverse lodging solutions for every guest type",
+			"transport": "Transport, transfers and shuttles",
+			"culinary": "Culinary experiences, restaurants, catering and private meals",
+			"vendors": "Local vendors (design, sound, photography, music and more)",
+			"management": "Full logistics management and on-site support throughout your stay"
+		},
+		"categoriesTitle": "Our event types",
+		"retreatsTitle": "Our retreats division",
+		"retreatsIntro": "Playa Venao is one of Panama's leading locations for groups seeking real disconnection, personal connection and meaningful depth. We design and produce retreats from scratch — from concept through logistics, lodging, content and activities.",
+		"readMore": "Learn more",
+		"backToEvents": "Back to event production",
+		"includesTitle": "What we can include:",
+		"cta": "Talk to us about your event",
+		"categories": {
+			"weddings": {
+				"title": "Weddings in Playa Venao",
+				"excerpt": "An intimate, unforgettable tropical wedding at sunset — that becomes a multi-day vacation for all your guests."
+			},
+			"privateParties": {
+				"title": "Birthdays & Private Celebrations",
+				"excerpt": "From a few-hour party to a full tropical experience — private villas, boat trips, beach parties and chef dinners by the sea."
+			},
+			"corporate": {
+				"title": "Corporate Events & Team Retreats",
+				"excerpt": "A unique company getaway blending work, nature, activities and real human connection — intimate team days to productions for hundreds."
+			},
+			"honeymoon": {
+				"title": "Honeymoon & Romantic Getaways",
+				"excerpt": "A different kind of romantic escape — wild nature, ocean, stunning sunsets and experiences tailored for couples."
+			}
+		},
+		"retreats": {
+			"wellness": {
+				"title": "Wellness & Balance Retreats",
+				"excerpt": "Yoga, meditation, healthy nutrition and treatments — slow down and step away from daily stress."
+			},
+			"surf": {
+				"title": "Surf & Lifestyle Retreats",
+				"excerpt": "Surf lessons, video analysis, surf yoga and vibrant beach life — for beginners and advanced surfers."
+			}
+		}
+	},
+	"eventsDetail": {
+		"weddings": {
+			"metaTitle": "Weddings in Playa Venao",
+			"title": "Weddings in Playa Venao",
+			"intro": "The perfect setting for an intimate, unforgettable tropical wedding at sunset.",
+			"body": "Your wedding doesn't end after one evening — it becomes a multi-day vacation for all your guests, filled with sea, parties, nature and shared experiences in Panama. We produce intimate beach weddings, luxury villa events, and large productions for hundreds of guests.",
+			"includes": {
+				"concept": "Full planning and concept design",
+				"venues": "Special beach or nature venues",
+				"lodging": "Lodging and airport transfers for all guests",
+				"catering": "Catering and bars",
+				"music": "DJ and live music",
+				"boats": "Private boat trips",
+				"beachParties": "Beach parties",
+				"photo": "Photography and content",
+				"activities": "Attractions and activities before and after the wedding"
+			}
+		},
+		"privateParties": {
+			"metaTitle": "Birthdays & Private Celebrations",
+			"title": "Birthdays & Private Celebrations",
+			"intro": "The perfect space for fully customized events that turn a celebration into an ongoing tropical experience.",
+			"body": "Whether it's an intimate couple's birthday, a wild friends' party, or a special family celebration — Playa Venao offers fully tailored events.",
+			"includes": {
+				"villas": "Luxury private villa hosting",
+				"boats": "Boat rentals and private sailing",
+				"sunsetParties": "Sunset and beach parties with DJ",
+				"privateDining": "Private restaurants and chef dinners by the sea",
+				"fishing": "Group fishing trips",
+				"attractions": "Exciting day activities and attractions"
+			}
+		},
+		"corporate": {
+			"metaTitle": "Corporate Events & Team Retreats",
+			"title": "Corporate Events & Team Retreats",
+			"intro": "A unique company retreat blending work, nature, activities and genuine human connection.",
+			"body": "Looking to take your team somewhere completely different? Instead of another generic city hotel or conference, Playa Venao offers a unique company experience. We produce everything from intimate team days to complex logistics for dozens or hundreds of participants.",
+			"includes": {
+				"coworking": "Equipped workspaces and meeting areas (coworking)",
+				"lodging": "Group lodging solutions",
+				"catering": "Private meals and catering",
+				"teamBuilding": "Team-building activities",
+				"surf": "Group surf lessons",
+				"nature": "Nature and waterfall tours",
+				"wellness": "Wellness workshops",
+				"talks": "Talks and presentations",
+				"beachParties": "Private beach parties"
+			}
+		},
+		"honeymoon": {
+			"metaTitle": "Honeymoon & Romantic Getaways",
+			"title": "Honeymoon & Romantic Getaways",
+			"intro": "A different kind of romantic vacation — wild nature, ocean, stunning sunsets and complete privacy.",
+			"body": "Playa Venao offers couples a romantic escape like no other. Our goal isn't just to book a hotel — it's to craft a complete, precise experience around the atmosphere you're looking for.",
+			"includes": {
+				"villas": "Private villas or boutique hotels",
+				"romanticDining": "Romantic beachfront dining",
+				"sunsetBoats": "Private sunset boat trips",
+				"massage": "Professional massage treatments",
+				"waterfalls": "Hidden waterfall tours",
+				"surfLessons": "Couples surf lessons",
+				"custom": "Private experiences built just for you"
+			}
+		},
+		"wellness": {
+			"metaTitle": "Wellness & Balance Retreats",
+			"title": "Wellness & Balance Retreats",
+			"intro": "Retreats focused on health, body-mind balance and healthy living — slow down and leave stress behind.",
+			"body": "Retreats for companies, instructors, influencers, communities and private groups. We build and produce retreats from scratch — from concept through logistics, lodging, content and activities.",
+			"includes": {
+				"yoga": "Yoga, body movement, meditation and breathwork",
+				"meditation": "Meditation and breathwork workshops",
+				"iceBath": "Ice baths",
+				"nutrition": "Healthy menus (smoothie bowls, fresh juices)",
+				"treatments": "Personal treatments",
+				"surf": "Surf lessons",
+				"nature": "Waterfall and nature hikes",
+				"rest": "Rest and downtime",
+				"coworking": "Dedicated workspaces",
+				"community": "Connection with the local community"
+			}
+		},
+		"surf": {
+			"metaTitle": "Surf & Lifestyle Retreats",
+			"title": "Surf & Lifestyle Retreats",
+			"intro": "A professional, social retreat focused on surfing and the lifestyle around it — for beginners and advanced surfers.",
+			"body": "Perfect for first-timers and advanced surfers who want to improve, with a vibrant community and full beach life.",
+			"includes": {
+				"lessons": "Guided surf lessons",
+				"video": "Professional video analysis for performance",
+				"technique": "Focused technique training",
+				"photo": "Professional surf photography (in and out of the water)",
+				"yoga": "Surf-specific yoga",
+				"recovery": "Recovery workshops and ice baths",
+				"nutrition": "Athlete-focused nutrition",
+				"nature": "Nature trips and beach life",
+				"community": "Vibrant surf community"
+			}
+		}
 	},
 	"contact": {
 		"metaTitle": "Contact",

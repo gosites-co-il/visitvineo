@@ -1,0 +1,114 @@
+---
+import PageHero from '../PageHero.astro';
+import InfoCard from '../InfoCard.astro';
+import { type Lang, useTranslatedPath, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const highlights = [
+	{ id: 'yearRound', brandIcon: 'waves', iconAccent: 'blue' },
+	{ id: 'allLevels', brandIcon: 'sun', iconAccent: 'orange' },
+	{ id: 'schools', brandIcon: 'palm', iconAccent: 'sage' },
+	{ id: 'community', brandIcon: 'birds', iconAccent: 'lavender' },
+] as const;
+---
+
+<PageHero
+	title={t('surfPage.title')}
+	subtitle={t('surfPage.intro')}
+	image="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1920&q=80"
+	fullHeight={false}
+/>
+
+<section class="section">
+	<div class="container">
+		<div class="surf-feature card">
+			<div class="surf-feature__image">
+				<img
+					src="https://images.unsplash.com/photo-1502680390468-be998c1370d7?w=900&q=80"
+					alt=""
+					loading="lazy"
+				/>
+			</div>
+			<div class="surf-feature__body">
+				<p class="surf-feature__text">{t('attractions.surf.body')}</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section section--warm">
+	<div class="container">
+		<h2 class="section-heading">{t('surfPage.title')}</h2>
+		<div class="surf-grid">
+			{highlights.map(({ id, brandIcon, iconAccent }) => (
+				<InfoCard
+					brandIcon={brandIcon}
+					iconAccent={iconAccent}
+					title={t(`surfPage.highlights.${id}.title`)}
+					body={t(`surfPage.highlights.${id}.body`)}
+				/>
+			))}
+		</div>
+	</div>
+</section>
+
+<section class="section surf-cta">
+	<div class="container surf-cta__inner">
+		<a href={translatePath('/contact')} class="btn btn--primary">{t('surfPage.cta')}</a>
+	</div>
+</section>
+
+<style>
+	.surf-feature {
+		display: grid;
+		grid-template-columns: 1.1fr 1fr;
+		overflow: hidden;
+	}
+
+	.surf-feature__image {
+		min-height: 280px;
+	}
+
+	.surf-feature__image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		min-height: 280px;
+	}
+
+	.surf-feature__body {
+		padding: 2.5rem;
+		display: flex;
+		align-items: center;
+	}
+
+	.surf-feature__text {
+		font-size: 1.1rem;
+		line-height: 1.85;
+		color: var(--color-text-muted);
+	}
+
+	.surf-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+
+	.surf-cta__inner {
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		.surf-feature {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

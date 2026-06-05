@@ -1,6 +1,6 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
-import { type Lang, useTranslatedPath, useTranslations } from '../i18n/ui';
+import { type Lang, getNavLinks, useTranslatedPath, useTranslations } from '../i18n/ui';
 
 interface Props {
 	lang: Lang;
@@ -10,14 +10,7 @@ interface Props {
 const { lang, currentPath } = Astro.props;
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
-const navLinks = [
-	{ label: t('nav.about'), href: translatePath('/about') },
-	{ label: t('nav.lodging'), href: translatePath('/lodging') },
-	{ label: t('nav.culinary'), href: translatePath('/culinary') },
-	{ label: t('nav.attractions'), href: translatePath('/attractions') },
-	{ label: t('nav.packages'), href: translatePath('/packages') },
-	{ label: t('nav.contact'), href: translatePath('/contact') },
-];
+const navLinks = getNavLinks(lang);
 ---
 
 <header class="header" id="site-header">

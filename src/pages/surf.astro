@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SurfPage from '../components/pages/SurfPage.astro';
+import { useTranslations } from '../i18n/ui';
+
+const t = useTranslations('he');
+---
+
+<BaseLayout lang="he" currentPath="/surf" title={`${t('surfPage.metaTitle')} | Playa Venao Adventures`}>
+	<SurfPage lang="he" />
+</BaseLayout>
