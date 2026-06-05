@@ -1,6 +1,6 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
-import { type Lang, getNavLinks, useTranslatedPath, useTranslations } from '../i18n/ui';
+import { type Lang, getNavLinks, isNavLinkActive, useTranslatedPath, useTranslations } from '../i18n/ui';
 
 interface Props {
 	lang: Lang;
@@ -24,9 +24,18 @@ const navLinks = getNavLinks(lang);
 		</a>
 
 		<nav class="header__nav" aria-label="Main">
-			{navLinks.map(({ label, href }) => (
-				<a href={href}>{label}</a>
-			))}
+			{navLinks.map(({ label, href }) => {
+				const active = isNavLinkActive(currentPath, href, lang);
+				return (
+					<a
+						href={href}
+						class:list={[{ 'header__nav-link--active': active }]}
+						aria-current={active ? 'page' : undefined}
+					>
+						{label}
+					</a>
+				);
+			})}
 		</nav>
 
 		<div class="header__actions">
@@ -41,9 +50,18 @@ const navLinks = getNavLinks(lang);
 	</div>
 
 	<div class="header__mobile-nav" id="mobile-nav" hidden>
-		{navLinks.map(({ label, href }) => (
-			<a href={href}>{label}</a>
-		))}
+		{navLinks.map(({ label, href }) => {
+			const active = isNavLinkActive(currentPath, href, lang);
+			return (
+				<a
+					href={href}
+					class:list={[{ 'header__nav-link--active': active }]}
+					aria-current={active ? 'page' : undefined}
+				>
+					{label}
+				</a>
+			);
+		})}
 		<a href={translatePath('/contact')} class="btn btn--primary">{t('nav.bookNow')}</a>
 	</div>
 </header>
@@ -146,6 +164,27 @@ const navLinks = getNavLinks(lang);
 	.header__nav a:hover {
 		opacity: 1;
 		color: var(--color-orange);
+	}
+
+	.header__nav a.header__nav-link--active,
+	.header__mobile-nav a.header__nav-link--active {
+		opacity: 1;
+		color: var(--color-orange);
+		font-weight: 700;
+	}
+
+	.header__nav a.header__nav-link--active {
+		position: relative;
+	}
+
+	.header__nav a.header__nav-link--active::after {
+		content: '';
+		position: absolute;
+		inset-inline: 0;
+		bottom: -0.35rem;
+		height: 2px;
+		border-radius: 2px;
+		background: var(--color-orange);
 	}
 
 	.header__actions {

@@ -50,6 +50,32 @@ export function getAlternateUrl(path: string, currentLang: Lang, site: string): 
 	return new URL(translatePath(path, otherLang), site).href;
 }
 
+function normalizePath(path: string): string {
+	const trimmed = path.replace(/\/$/, '');
+	return trimmed === '' ? '/' : trimmed;
+}
+
+/** Strip language prefix so `/en/surf` and `/surf` compare consistently. */
+export function getLogicalPath(path: string, lang: Lang): string {
+	const normalized = normalizePath(path);
+	if (lang === 'en' && (normalized === '/en' || normalized.startsWith('/en/'))) {
+		const withoutLang = normalized.slice(3);
+		return withoutLang === '' ? '/' : withoutLang;
+	}
+	return normalized;
+}
+
+export function isNavLinkActive(currentPath: string, href: string, lang: Lang): boolean {
+	const current = getLogicalPath(currentPath, lang);
+	const link = getLogicalPath(href, lang);
+
+	if (link === '/') {
+		return current === '/';
+	}
+
+	return current === link || current.startsWith(`${link}/`);
+}
+
 export function getNavLinks(lang: Lang) {
 	const t = useTranslations(lang);
 	const translatePath = useTranslatedPath(lang);
