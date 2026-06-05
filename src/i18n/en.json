@@ -105,8 +105,54 @@
 	},
 	"surfPage": {
 		"metaTitle": "Surfing",
-		"title": "Surfing in Playa Venao",
-		"intro": "Playa Venao is one of Central America's most renowned and consistent surf destinations, with waves that work year-round for beginners and advanced surfers alike.",
+		"heroBadge": "SURF IS THE SOUL OF PLAYA VENAO",
+		"title": "The Complete Surf Experience in Playa Venao",
+		"intro": "Playa Venao is one of Central America's most renowned and consistent surf destinations, with excellent waves that work year-round. Whether you're an experienced surfer looking to charge, learning to stand on a wave for the first time, or simply love the beach lifestyle and vibe — surfing here is the beating heart of the place.",
+		"intro2": "Venao's main beach offers perfect, safe, and comfortable conditions for progression and fast learning. To ensure the highest standard, we work in close partnership with Shokogi Surf School — the leading surf school in Central America.",
+		"quote": "One of the most comfortable and fun places to learn and progress in surfing quickly — for all levels!",
+		"productsTitle": "Our Surf Products",
+		"readMore": "Learn more",
+		"backToSurf": "Back to surfing",
+		"includesLabel": "What's included?",
+		"products": {
+			"retreat": {
+				"title": "Surf & Wellness Retreat",
+				"subtitle": "The perfect sanctuary for body and mind in Panama's tropical nature.",
+				"body": "An immersive retreat that perfectly blends the surf world with a healthy, balanced, energy-filled lifestyle. Suitable for beginners and advanced surfers, it helps you step out of routine, slow down, and reconnect with your body and nature.",
+				"includes": {
+					"lessons": "Guided surf lessons and in-water technique training.",
+					"photo": "Professional surf photography and video analysis to improve performance.",
+					"yoga": "Surfer yoga, body movement workshops, and meditation.",
+					"recovery": "Recovery experiences including ice baths, breathwork, and massages.",
+					"nutrition": "Healthy, nourishing meals: fresh food, natural juices, and smoothie bowls.",
+					"nature": "Nature trips, hidden waterfalls, and deep connection with the local community."
+				}
+			},
+			"course": {
+				"title": "Surf Course | Professional Lessons (All Levels)",
+				"subtitle": "The fastest and safest way to get on a wave and progress quickly.",
+				"body": "Our surf courses are taught by certified, professional coaches from Shokogi Surf School. Courses are tailored to your level — from your first steps in the water to advanced techniques for experienced surfers.",
+				"includes": {
+					"private": "Private one-on-one lessons or intimate group sessions.",
+					"theory": "Beach theory: understanding the ocean, currents, beach safety, and proper stance.",
+					"practice": "Guided in-water practice with close coach support at every moment.",
+					"boardFit": "Precise board selection for your body type and surf level.",
+					"video": "Optional video analysis to correct mistakes in real time."
+				}
+			},
+			"rental": {
+				"title": "Surfboard Rental",
+				"subtitle": "Don't haul boards from home — Venao's most advanced garage awaits you.",
+				"body": "Playa Venao offers a variety of spots and changing wave types. Our rental service gives you full flexibility and access to top-quality equipment so you can match your board to the conditions each day.",
+				"includes": {
+					"variety": "A huge range of boards: softboards for learning, longboards for fun, and pro shortboards for advanced surfers.",
+					"swap": "Board swaps during your rental period based on conditions and your progress.",
+					"advice": "Professional advice and fitting from our local surf team on the beach.",
+					"maintenance": "Equipment stored and maintained to the highest standard (including wax and fins ready for the water)."
+				}
+			}
+		},
+		"highlightsTitle": "Surfing in Playa Venao",
 		"highlights": {
 			"yearRound": {
 				"title": "Year-Round Waves",
@@ -124,6 +170,12 @@
 				"title": "Surf Community",
 				"body": "A strong international community — sunset sessions, social beach vibes, and real connections with people from around the world."
 			}
+		},
+		"whyBook": {
+			"title": "Why Book Your Surf Experience With Us?",
+			"tagline": "Our goal isn't just an activity — it's building a real local experience",
+			"intro": "Playa Venao Adventures connects travelers with the places, people, and experiences that define the real Panama. Our main advantage is deep knowledge of the area and hidden spots fewer tourists reach. Instead of a generic experience, we focus on authentic moments, personal service, and simple planning.",
+			"intro2": "We want you to arrive in Panama without the headache — feeling like someone has already handled every small detail on the ground."
 		},
 		"cta": "Book a Surf Lesson"
 	},

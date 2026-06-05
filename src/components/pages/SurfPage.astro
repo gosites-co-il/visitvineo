@@ -1,6 +1,7 @@
 ---
 import PageHero from '../PageHero.astro';
-import InfoCard from '../InfoCard.astro';
+import WhyBookBlock from '../WhyBookBlock.astro';
+import { surfProducts } from '../../data/surf';
 import { type Lang, useTranslatedPath, useTranslations } from '../../i18n/ui';
 
 interface Props {
@@ -10,54 +11,46 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
-
-const highlights = [
-	{ id: 'yearRound', brandIcon: 'waves', iconAccent: 'blue' },
-	{ id: 'allLevels', brandIcon: 'sun', iconAccent: 'orange' },
-	{ id: 'schools', brandIcon: 'palm', iconAccent: 'sage' },
-	{ id: 'community', brandIcon: 'birds', iconAccent: 'lavender' },
-] as const;
 ---
 
 <PageHero
+	badge={t('surfPage.heroBadge')}
 	title={t('surfPage.title')}
-	subtitle={t('surfPage.intro')}
 	image="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1920&q=80"
 	fullHeight={false}
 />
 
 <section class="section">
-	<div class="container">
-		<div class="surf-feature card">
-			<div class="surf-feature__image">
-				<img
-					src="https://images.unsplash.com/photo-1502680390468-be998c1370d7?w=900&q=80"
-					alt=""
-					loading="lazy"
-				/>
-			</div>
-			<div class="surf-feature__body">
-				<p class="surf-feature__text">{t('attractions.surf.body')}</p>
-			</div>
-		</div>
+	<div class="container surf-intro">
+		<p class="surf-intro__text">{t('surfPage.intro')}</p>
+		<p class="surf-intro__text">{t('surfPage.intro2')}</p>
+		<blockquote class="surf-intro__quote">{t('surfPage.quote')}</blockquote>
 	</div>
 </section>
 
 <section class="section section--warm">
 	<div class="container">
-		<h2 class="section-heading">{t('surfPage.title')}</h2>
-		<div class="surf-grid">
-			{highlights.map(({ id, brandIcon, iconAccent }) => (
-				<InfoCard
-					brandIcon={brandIcon}
-					iconAccent={iconAccent}
-					title={t(`surfPage.highlights.${id}.title`)}
-					body={t(`surfPage.highlights.${id}.body`)}
-				/>
+		<h2 class="section-heading">{t('surfPage.productsTitle')}</h2>
+		<div class="surf-products">
+			{surfProducts.map(({ id, slug, image }) => (
+				<a href={translatePath(`/surf/${slug}`)} class="surf-product card surf-product--link">
+					<div class="surf-product__image">
+						<img src={image} alt="" loading="lazy" />
+					</div>
+					<div class="surf-product__body">
+						<h3 class="surf-product__title">{t(`surfPage.products.${id}.title`)}</h3>
+						<p class="surf-product__excerpt">{t(`surfPage.products.${id}.subtitle`)}</p>
+						<span class="surf-product__more">
+							{t('surfPage.readMore')} <span class="icon--directional" aria-hidden="true">→</span>
+						</span>
+					</div>
+				</a>
 			))}
 		</div>
 	</div>
 </section>
+
+<WhyBookBlock lang={lang} scope="surf" />
 
 <section class="section surf-cta">
 	<div class="container surf-cta__inner">
@@ -66,49 +59,128 @@ const highlights = [
 </section>
 
 <style>
-	.surf-feature {
+	.surf-intro {
+		max-width: 44rem;
+		margin-inline: auto;
+	}
+
+	.surf-intro__text {
+		font-size: 1.1rem;
+		line-height: 1.9;
+		color: var(--color-text-muted);
+		margin-bottom: 1.25rem;
+	}
+
+	.surf-intro__quote {
+		margin: 2rem 0 0;
+		padding: 1.25rem 1.5rem;
+		border-inline-start: 4px solid var(--color-orange);
+		background: var(--color-warm-bg, #f8f4ef);
+		font-size: 1.05rem;
+		font-weight: 600;
+		font-style: normal;
+		line-height: 1.7;
+		color: var(--color-text);
+	}
+
+	.surf-products {
 		display: grid;
-		grid-template-columns: 1.1fr 1fr;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.25rem;
+		margin-top: 2rem;
+		align-items: stretch;
+	}
+
+	.surf-product {
+		display: flex;
+		flex-direction: column;
 		overflow: hidden;
+		height: 100%;
+		color: inherit;
+		text-decoration: none;
+		transition: box-shadow 0.2s ease, transform 0.2s ease;
 	}
 
-	.surf-feature__image {
-		min-height: 280px;
+	.surf-product--link:hover {
+		box-shadow: var(--shadow-card-hover, 0 8px 24px rgba(0, 0, 0, 0.08));
+		transform: translateY(-2px);
 	}
 
-	.surf-feature__image img {
+	.surf-product--link:hover .surf-product__image img {
+		transform: scale(1.04);
+	}
+
+	.surf-product__image {
+		aspect-ratio: 4 / 3;
+		flex-shrink: 0;
+		overflow: hidden;
+		line-height: 0;
+		background: var(--color-warm-bg, #f0ebe4);
+	}
+
+	.surf-product__image img {
+		display: block;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		min-height: 280px;
+		object-position: center center;
+		transition: transform 0.5s ease;
 	}
 
-	.surf-feature__body {
-		padding: 2.5rem;
+	.surf-product__body {
+		flex: 1;
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		padding: 1.25rem 1.35rem 1.5rem;
 	}
 
-	.surf-feature__text {
-		font-size: 1.1rem;
-		line-height: 1.85;
+	.surf-product__title {
+		font-family: var(--font-display);
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--color-orange);
+		margin-bottom: 0.4rem;
+		line-height: 1.35;
+	}
+
+	.surf-product__excerpt {
+		flex: 1;
+		font-size: 0.88rem;
+		line-height: 1.65;
 		color: var(--color-text-muted);
+		margin-bottom: 0.75rem;
 	}
 
-	.surf-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-		gap: 1.5rem;
-		margin-top: 2rem;
+	.surf-product__more {
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--color-dusty-blue);
+	}
+
+	.surf-product__more .icon--directional {
+		display: inline-block;
 	}
 
 	.surf-cta__inner {
 		text-align: center;
 	}
 
-	@media (max-width: 768px) {
-		.surf-feature {
+	@media (max-width: 639px) {
+		.surf-products {
 			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.surf-product__body {
+			padding: 1.5rem;
+		}
+
+		.surf-product__title {
+			font-size: 1.15rem;
+		}
+
+		.surf-product__excerpt {
+			font-size: 1rem;
 		}
 	}
 </style>

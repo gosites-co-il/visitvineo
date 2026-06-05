@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700&display=swap');
 
 *,
 *::before,
@@ -19,7 +19,7 @@
 	--color-text: #2a2a2a;
 	--color-text-muted: rgba(42, 42, 42, 0.68);
 
-	--font-body: 'Heebo', sans-serif;
+	--font-body: 'Rubik', sans-serif;
 	--font-display: 'Rubik', sans-serif;
 
 	--header-height: 76px;
@@ -34,6 +34,11 @@
 
 html {
 	scroll-behavior: smooth;
+}
+
+html[lang='he'] {
+	--font-body: 'Assistant', sans-serif;
+	--font-display: 'Assistant', sans-serif;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SurfProductDetailPage from '../../components/pages/SurfProductDetailPage.astro';
+import { allSurfProductSlugs, getSurfProductBySlug } from '../../data/surf';
+import { useTranslations } from '../../i18n/ui';
+
+export function getStaticPaths() {
+	return allSurfProductSlugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const product = getSurfProductBySlug(slug!);
+
+if (!product) {
+	return Astro.redirect('/surf');
+}
+
+const t = useTranslations('he');
+const currentPath = `/surf/${slug}`;
+---
+
+<BaseLayout
+	lang="he"
+	currentPath={currentPath}
+	title={`${t(`surfPage.products.${product.id}.title`)} | Playa Venao Adventures`}
+>
+	<SurfProductDetailPage lang="he" productId={product.id} heroImage={product.image} />
+</BaseLayout>

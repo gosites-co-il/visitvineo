@@ -1,13 +1,17 @@
 ---
+import InfoCard from './InfoCard.astro';
+import { surfHighlights } from '../data/surf';
 import { whyBookBenefitKeys } from '../data/whyBook';
 import { type Lang, useTranslations } from '../i18n/ui';
 
 interface Props {
 	lang: Lang;
+	scope?: 'attractions' | 'surf';
 }
 
-const { lang } = Astro.props;
+const { lang, scope = 'attractions' } = Astro.props;
 const t = useTranslations(lang);
+const whyBookKey = scope === 'surf' ? 'surfPage.whyBook' : 'attractions.whyBook';
 
 function splitBenefit(text: string): { title: string; body: string } {
 	const separator = text.includes(' – ') ? ' – ' : ' — ';
@@ -23,27 +27,45 @@ function splitBenefit(text: string): { title: string; body: string } {
 <section class="why-book section section--warm">
 	<div class="container">
 		<div class="why-book__intro-wrap">
-			<h2 class="why-book__title">{t('attractions.whyBook.title')}</h2>
-			<p class="why-book__tagline">{t('attractions.whyBook.tagline')}</p>
+			<h2 class="why-book__title">{t(`${whyBookKey}.title`)}</h2>
+			<p class="why-book__tagline">{t(`${whyBookKey}.tagline`)}</p>
 
 			<div class="why-book__intro">
-				<p>{t('attractions.whyBook.intro')}</p>
-				<p>{t('attractions.whyBook.intro2')}</p>
+				<p>{t(`${whyBookKey}.intro`)}</p>
+				<p>{t(`${whyBookKey}.intro2`)}</p>
 			</div>
 		</div>
 
-		<h3 class="why-book__subtitle">{t('attractions.whyBook.experienceTitle')}</h3>
-		<div class="why-book__grid">
-			{whyBookBenefitKeys.map((key) => {
-				const { title, body } = splitBenefit(t(`attractions.whyBook.benefits.${key}`));
-				return (
-					<article class="why-book__card card">
-						<h4 class="why-book__card-title">{title}</h4>
-						<p class="why-book__card-body">{body}</p>
-					</article>
-				);
-			})}
-		</div>
+		{scope === 'surf' ? (
+			<>
+				<h3 class="why-book__subtitle">{t('surfPage.highlightsTitle')}</h3>
+				<div class="why-book__highlights">
+					{surfHighlights.map(({ id, brandIcon, iconAccent }) => (
+						<InfoCard
+							brandIcon={brandIcon}
+							iconAccent={iconAccent}
+							title={t(`surfPage.highlights.${id}.title`)}
+							body={t(`surfPage.highlights.${id}.body`)}
+						/>
+					))}
+				</div>
+			</>
+		) : (
+			<>
+				<h3 class="why-book__subtitle">{t(`${whyBookKey}.experienceTitle`)}</h3>
+				<div class="why-book__grid">
+					{whyBookBenefitKeys.map((key) => {
+						const { title, body } = splitBenefit(t(`${whyBookKey}.benefits.${key}`));
+						return (
+							<article class="why-book__card card">
+								<h4 class="why-book__card-title">{title}</h4>
+								<p class="why-book__card-body">{body}</p>
+							</article>
+						);
+					})}
+				</div>
+			</>
+		)}
 	</div>
 </section>
 
@@ -92,6 +114,43 @@ function splitBenefit(text: string): { title: string; body: string } {
 		text-align: center;
 		margin-bottom: 1.5rem;
 		color: var(--color-text);
+	}
+
+	.why-book__highlights {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+		align-items: stretch;
+	}
+
+	.why-book__highlights :global(.info-card) {
+		height: 100%;
+	}
+
+	.why-book__highlights :global(.info-card__body) {
+		padding: 1.25rem;
+	}
+
+	.why-book__highlights :global(.info-card__title) {
+		font-size: 1rem;
+	}
+
+	.why-book__highlights :global(.info-card__text) {
+		font-size: 0.88rem;
+		line-height: 1.65;
+	}
+
+	.why-book__highlights :global(.info-card__icon) {
+		width: 52px;
+		height: 52px;
+		margin-bottom: 0.75rem;
+	}
+
+	@media (min-width: 640px) {
+		.why-book__highlights {
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1.25rem;
+		}
 	}
 
 	.why-book__grid {

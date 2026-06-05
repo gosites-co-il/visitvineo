@@ -31,14 +31,13 @@ const translatePath = useTranslatedPath(lang);
 		<h2 class="section-heading">{t('attractions.flagshipTitle')}</h2>
 
 		<div class="attractions-list">
-			{attractionActivities.map(({ id, slug, image }, index) => (
+			{attractionActivities.map(({ id, slug, image }) => (
 				<EventCategoryCard
 					href={translatePath(`/attractions/${slug}`)}
 					title={t(`attractions.activities.${id}.title`)}
 					excerpt={t(`attractions.activities.${id}.short`)}
 					image={image}
 					readMore={t('attractions.readMore')}
-					reversed={index % 2 === 1}
 				/>
 			))}
 		</div>
@@ -63,11 +62,21 @@ const translatePath = useTranslatedPath(lang);
 	}
 
 	.attractions-list {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.25rem;
 		margin-top: 2rem;
-		width: 100%;
+		align-items: stretch;
+	}
+
+	.attractions-list :global(.side-card) {
+		height: 100%;
+	}
+
+	@media (max-width: 639px) {
+		.attractions-list {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	.attractions-cta {

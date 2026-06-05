@@ -1,0 +1,83 @@
+---
+import PageHero from '../PageHero.astro';
+import { type SurfProductId, surfProductIncludes } from '../../data/surf';
+import { type Lang, useTranslatedPath, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+	productId: SurfProductId;
+	heroImage: string;
+}
+
+const { lang, productId, heroImage } = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const includeKeys = surfProductIncludes[productId];
+const surfPath = translatePath('/surf');
+---
+
+<PageHero
+	title={t(`surfPage.products.${productId}.title`)}
+	subtitle={t(`surfPage.products.${productId}.subtitle`)}
+	image={heroImage}
+	fullHeight={false}
+/>
+
+<section class="section">
+	<div class="container surf-product-detail">
+		<p class="surf-product-detail__body">{t(`surfPage.products.${productId}.body`)}</p>
+
+		<h2 class="surf-product-detail__includes-title">{t('surfPage.includesLabel')}</h2>
+		<ul class="surf-product-detail__list">
+			{includeKeys.map((key) => (
+				<li>{t(`surfPage.products.${productId}.includes.${key}`)}</li>
+			))}
+		</ul>
+
+		<div class="surf-product-detail__actions">
+			<a href={translatePath('/contact')} class="btn btn--primary">{t('surfPage.cta')}</a>
+			<a href={surfPath} class="btn btn--secondary">{t('surfPage.backToSurf')}</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	.surf-product-detail {
+		max-width: 44rem;
+	}
+
+	.surf-product-detail__body {
+		font-size: 1.1rem;
+		line-height: 1.9;
+		color: var(--color-text-muted);
+		margin-bottom: 2.5rem;
+	}
+
+	.surf-product-detail__includes-title {
+		font-family: var(--font-display);
+		font-size: 1.35rem;
+		font-weight: 700;
+		margin-bottom: 1.25rem;
+		color: var(--color-orange);
+	}
+
+	.surf-product-detail__list {
+		list-style: disc;
+		padding-inline-start: 1.5rem;
+		margin-bottom: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.65rem;
+	}
+
+	.surf-product-detail__list li {
+		color: var(--color-text-muted);
+		line-height: 1.75;
+	}
+
+	.surf-product-detail__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+</style>
