@@ -128,33 +128,39 @@
 		"cta": "Book a Surf Lesson"
 	},
 	"attractions": {
-		"metaTitle": "Experiences & Attractions",
-		"title": "Experiences, Attractions & Surf",
-		"surf": {
-			"title": "Surfing",
-			"body": "Playa Venao is one of Central America's most renowned and consistent surf destinations, with waves year-round for beginners and advanced surfers. Surf schools, camps (like SHOKOGI SURF SCHOOL), board rentals and a strong community."
-		},
-		"nightlife": {
-			"title": "Nightlife",
-			"body": "Beach parties, pool parties, live shows, DJ nights and sunset parties in a free, international vibe."
-		},
-		"activitiesTitle": "More Activities",
+		"metaTitle": "Experiences & Adventures",
+		"title": "Experiences & Adventures — Discover Venao Inside and Out",
+		"intro": "We'll take you far beyond the familiar — from hidden corners to wild adventures under the open sky. Everything is arranged so you can focus entirely on the experience.",
+		"flagshipTitle": "Our signature attractions",
+		"readMore": "Learn more",
+		"backToAttractions": "Back to adventures & attractions",
+		"shortLabel": "In brief",
+		"storyLabel": "The experience",
+		"includesLabel": "What's included",
 		"activities": {
 			"waterfalls": {
-				"title": "Waterfall Tours",
-				"body": "Hidden spots in Panama's jungles — refresh in natural, cool pools."
-			},
-			"fishing": {
-				"title": "Fishing Trips",
-				"body": "Head out to sea for a true local adventure (Tuna, Mahi Mahi, Snapper, Roosterfish) — relax and enjoy the ocean."
+				"title": "Waterfall Tours & 4x4 Adventures",
+				"short": "Hidden spots deep in Panama's jungles — refresh in cool natural pools.",
+				"story": "Our waterfall tours let you experience a completely different side of Panama. Much of the adventure is the journey itself — an exciting 4x4 ride along dirt trails and river crossings through lush tropical vegetation. We reach hidden waterfalls and natural pools deep in the Azuero Peninsula wilderness, far from crowded tourist routes. Swim in clear water, jump from the falls, and enjoy lunch and fresh fruit platters in the heart of the jungle.",
+				"includes": "4x4 transport, guided tour, cold drinks, coolers, fresh fruit and lunch in nature."
 			},
 			"iguana": {
-				"title": "Isla Iguana",
-				"body": "Crystal turquoise waters beside white sand. The perfect spot for snorkeling and relaxation."
+				"title": "Isla Iguana Boat Tour",
+				"short": "Crystal turquoise water beside white sand — perfect for snorkeling and relaxation.",
+				"story": "Isla Iguana is a protected tropical island and nature reserve, one of the most beautiful and sought-after spots in the region. The experience begins with a boat ride along the wild coastline, where depending on the season you may see dolphins, sea turtles and even whales. On the island you'll find a true paradise with a magical Caribbean atmosphere — the best spot in the area for snorkeling thanks to clear water and rich coral reefs full of tropical fish.",
+				"includes": "Boat trip, full snorkeling gear, cold drinks, seasonal fruit and coolers for a perfect rest on the white beach."
+			},
+			"fishing": {
+				"title": "Pacific Ocean Fishing Tours",
+				"short": "Head out to sea for a true local adventure — fish, relax and enjoy the ocean.",
+				"story": "Panama's Pacific is one of the world's top sport-fishing destinations. Our trips leave early in the morning when the sea is calm. With local captains who know the best spots, we head offshore for an authentic, exciting day on the water. Suitable for experienced anglers and complete beginners alike. Common catches include tuna, mahi-mahi, snapper and roosterfish.",
+				"includes": "Boat (up to 7 people), full professional fishing gear, local guides, soft drinks, beers, fruit, and professional cleaning of your catch at the end."
 			},
 			"horses": {
-				"title": "Horseback Riding",
-				"body": "Ride through wild nature with open panoramic views."
+				"title": "Sunset Horseback Riding",
+				"short": "Ride through wild nature with open views — calm but unforgettable.",
+				"story": "Horseback riding around Playa Venao is the perfect way to connect with the area's slow, authentic rhythm. Our routes cross green hills, flowing rivers, hidden tropical trails and open coastline with stunning panoramic views of the ocean and mountains. Local guides tailor the ride to your level — even if you've never ridden before. The most popular option is an afternoon ride toward the sun setting into the Pacific.",
+				"includes": "Calm, well-trained horses, dedicated local guide, private transport, cold drinks and fresh fruit platters."
 			}
 		}
 	},

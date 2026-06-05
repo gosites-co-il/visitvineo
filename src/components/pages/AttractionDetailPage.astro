@@ -1,0 +1,77 @@
+---
+import PageHero from '../PageHero.astro';
+import { type AttractionId } from '../../data/attractions';
+import { type Lang, useTranslatedPath, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+	attractionId: AttractionId;
+	heroImage: string;
+}
+
+const { lang, attractionId, heroImage } = Astro.props;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const attractionsPath = translatePath('/attractions');
+---
+
+<PageHero
+	title={t(`attractions.activities.${attractionId}.title`)}
+	subtitle={t(`attractions.activities.${attractionId}.short`)}
+	image={heroImage}
+	fullHeight={false}
+/>
+
+<section class="section">
+	<div class="container attraction-detail">
+		<h2 class="attraction-detail__heading">{t('attractions.storyLabel')}</h2>
+		<p class="attraction-detail__body">{t(`attractions.activities.${attractionId}.story`)}</p>
+
+		<h2 class="attraction-detail__heading">{t('attractions.includesLabel')}</h2>
+		<p class="attraction-detail__includes">{t(`attractions.activities.${attractionId}.includes`)}</p>
+
+		<div class="attraction-detail__actions">
+			<a href={translatePath('/contact')} class="btn btn--primary">{t('packages.cta')}</a>
+			<a href={attractionsPath} class="btn btn--secondary">{t('attractions.backToAttractions')}</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	.attraction-detail {
+		max-width: 44rem;
+	}
+
+	.attraction-detail__heading {
+		font-family: var(--font-display);
+		font-size: 1.35rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		color: var(--color-orange);
+	}
+
+	.attraction-detail__heading + .attraction-detail__heading {
+		margin-top: 2rem;
+	}
+
+	.attraction-detail__body {
+		font-size: 1.1rem;
+		line-height: 1.9;
+		color: var(--color-text-muted);
+		margin-bottom: 0;
+	}
+
+	.attraction-detail__includes {
+		font-size: 1.05rem;
+		line-height: 1.85;
+		color: var(--color-text);
+		margin-bottom: 2.5rem;
+	}
+
+	.attraction-detail__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin-top: 2.5rem;
+	}
+</style>

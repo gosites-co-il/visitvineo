@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AttractionDetailPage from '../../components/pages/AttractionDetailPage.astro';
+import { allAttractionSlugs, getAttractionBySlug } from '../../data/attractions';
+import { useTranslations } from '../../i18n/ui';
+
+export function getStaticPaths() {
+	return allAttractionSlugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const attraction = getAttractionBySlug(slug!);
+
+if (!attraction) {
+	return Astro.redirect('/attractions');
+}
+
+const t = useTranslations('he');
+const currentPath = `/attractions/${slug}`;
+---
+
+<BaseLayout
+	lang="he"
+	currentPath={currentPath}
+	title={`${t(`attractions.activities.${attraction.id}.title`)} | Playa Venao Adventures`}
+>
+	<AttractionDetailPage lang="he" attractionId={attraction.id} heroImage={attraction.image} />
+</BaseLayout>

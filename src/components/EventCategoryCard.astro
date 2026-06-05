@@ -1,4 +1,6 @@
 ---
+import SideImageCard from './SideImageCard.astro';
+
 interface Props {
 	href: string;
 	title: string;
@@ -11,72 +13,15 @@ interface Props {
 const { href, title, excerpt, image, readMore, reversed = false } = Astro.props;
 ---
 
-<a href={href} class:list={['event-card', 'card', { 'event-card--reversed': reversed }]}>
-	<div class="event-card__image">
-		<img src={image} alt="" loading="lazy" />
-	</div>
-	<div class="event-card__body">
-		<h3 class="event-card__title">{title}</h3>
-		<p class="event-card__excerpt">{excerpt}</p>
-		<span class="event-card__link">{readMore} <span class="icon--directional" aria-hidden="true">→</span></span>
-	</div>
-</a>
+<SideImageCard href={href} image={image} reversed={reversed}>
+	<h3 class="side-card__title">{title}</h3>
+	<p class="side-card__text">{excerpt}</p>
+	<span class="event-card__link">
+		{readMore} <span class="icon--directional" aria-hidden="true">→</span>
+	</span>
+</SideImageCard>
 
 <style>
-	.event-card {
-		display: flex;
-		flex-direction: row;
-		align-items: stretch;
-		color: inherit;
-		width: 100%;
-	}
-
-	.event-card--reversed {
-		flex-direction: row-reverse;
-	}
-
-	.event-card__image {
-		flex-shrink: 0;
-		width: 120px;
-		overflow: hidden;
-	}
-
-	.event-card__image img {
-		width: 100%;
-		height: 100%;
-		min-height: 96px;
-		object-fit: cover;
-		transition: transform 0.5s ease;
-	}
-
-	.event-card:hover .event-card__image img {
-		transform: scale(1.05);
-	}
-
-	.event-card__body {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding: 0.85rem 1rem;
-		min-width: 0;
-	}
-
-	.event-card__title {
-		font-size: 0.98rem;
-		font-weight: 700;
-		margin-bottom: 0.35rem;
-		color: var(--color-orange);
-		line-height: 1.3;
-	}
-
-	.event-card__excerpt {
-		font-size: 0.88rem;
-		color: var(--color-text-muted);
-		line-height: 1.6;
-		margin-bottom: 0.5rem;
-	}
-
 	.event-card__link {
 		font-size: 0.8rem;
 		font-weight: 600;
@@ -85,19 +30,5 @@ const { href, title, excerpt, image, readMore, reversed = false } = Astro.props;
 
 	.event-card__link .icon--directional {
 		display: inline-block;
-	}
-
-	@media (min-width: 640px) {
-		.event-card__image {
-			width: 160px;
-		}
-
-		.event-card__body {
-			padding: 1.1rem 1.35rem;
-		}
-
-		.event-card__title {
-			font-size: 1.05rem;
-		}
 	}
 </style>

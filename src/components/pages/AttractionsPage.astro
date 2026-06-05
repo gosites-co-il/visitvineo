@@ -1,7 +1,8 @@
 ---
 import PageHero from '../PageHero.astro';
-import InfoCard from '../InfoCard.astro';
-import { type Lang, useTranslations } from '../../i18n/ui';
+import EventCategoryCard from '../EventCategoryCard.astro';
+import { attractionActivities } from '../../data/attractions';
+import { type Lang, useTranslatedPath, useTranslations } from '../../i18n/ui';
 
 interface Props {
 	lang: Lang;
@@ -9,13 +10,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-
-const activities = [
-	{ id: 'waterfalls', image: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&q=80', icon: '💧' },
-	{ id: 'fishing', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80', icon: '🎣' },
-	{ id: 'iguana', image: 'https://images.unsplash.com/photo-1559127772-0f4f7a7e5b8a?w=800&q=80', icon: '🏝️' },
-	{ id: 'horses', image: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=800&q=80', icon: '🐴' },
-] as const;
+const translatePath = useTranslatedPath(lang);
 ---
 
 <PageHero
@@ -25,105 +20,58 @@ const activities = [
 	overlay={true}
 />
 
-<section class="section section--warm">
-	<div class="container">
-		<article class="feature-block card">
-			<div class="feature-block__image">
-				<img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=900&q=80" alt="" loading="lazy" />
-			</div>
-			<div class="feature-block__body">
-				<h2 class="feature-block__title">{t('attractions.surf.title')}</h2>
-				<p class="feature-block__text">{t('attractions.surf.body')}</p>
-			</div>
-		</article>
-	</div>
-</section>
-
 <section class="section">
-	<div class="container">
-		<article class="feature-block card feature-block--reverse">
-			<div class="feature-block__image">
-				<img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=900&q=80" alt="" loading="lazy" />
-			</div>
-			<div class="feature-block__body">
-				<h2 class="feature-block__title">{t('attractions.nightlife.title')}</h2>
-				<p class="feature-block__text">{t('attractions.nightlife.body')}</p>
-			</div>
-		</article>
+	<div class="container attractions-intro">
+		<p class="attractions-intro__text">{t('attractions.intro')}</p>
 	</div>
 </section>
 
 <section class="section section--warm">
 	<div class="container">
-		<h2 class="section-heading">{t('attractions.activitiesTitle')}</h2>
-		<div class="activities__grid">
-			{activities.map(({ id, image, icon }) => (
-				<InfoCard
-					icon={icon}
-					image={image}
+		<h2 class="section-heading">{t('attractions.flagshipTitle')}</h2>
+
+		<div class="attractions-list">
+			{attractionActivities.map(({ id, slug, image }, index) => (
+				<EventCategoryCard
+					href={translatePath(`/attractions/${slug}`)}
 					title={t(`attractions.activities.${id}.title`)}
-					body={t(`attractions.activities.${id}.body`)}
+					excerpt={t(`attractions.activities.${id}.short`)}
+					image={image}
+					readMore={t('attractions.readMore')}
+					reversed={index % 2 === 1}
 				/>
 			))}
+		</div>
+
+		<div class="attractions-cta">
+			<a href={translatePath('/contact')} class="btn btn--primary">{t('packages.cta')}</a>
 		</div>
 	</div>
 </section>
 
 <style>
-	.feature-block {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 0;
+	.attractions-intro {
+		max-width: 44rem;
+		margin-inline: auto;
+		text-align: center;
 	}
 
-	.feature-block--reverse .feature-block__image {
-		order: 2;
+	.attractions-intro__text {
+		font-size: 1.15rem;
+		line-height: 1.9;
+		color: var(--color-text-muted);
 	}
 
-	.feature-block__image {
-		min-height: 280px;
-	}
-
-	.feature-block__image img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		min-height: 280px;
-	}
-
-	.feature-block__body {
-		padding: 2.5rem;
+	.attractions-list {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-	}
-
-	.feature-block__title {
-		font-size: 1.5rem;
-		font-weight: 700;
-		margin-bottom: 1rem;
-	}
-
-	.feature-block__text {
-		color: var(--color-text-muted);
-		line-height: 1.8;
-	}
-
-	.activities__grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-		gap: 1.5rem;
+		gap: 1rem;
 		margin-top: 2rem;
+		width: 100%;
 	}
 
-	@media (max-width: 768px) {
-		.feature-block,
-		.feature-block--reverse {
-			grid-template-columns: 1fr;
-		}
-
-		.feature-block--reverse .feature-block__image {
-			order: 0;
-		}
+	.attractions-cta {
+		text-align: center;
+		margin-top: 2.5rem;
 	}
 </style>
