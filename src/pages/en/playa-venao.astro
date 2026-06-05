@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PlayaVenaoPage from '../../components/pages/PlayaVenaoPage.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const t = useTranslations('en');
+---
+
+<BaseLayout
+	lang="en"
+	currentPath="/playa-venao"
+	title={`${t('playaVenaoPage.metaTitle')} | Playa Venao Adventures`}
+>
+	<PlayaVenaoPage lang="en" />
+</BaseLayout>

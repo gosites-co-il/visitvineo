@@ -22,7 +22,7 @@ const packages = ['basic', 'full', 'corporate'] as const;
 <section class="section">
 	<div class="container packages">
 		{packages.map((id) => (
-			<article class="package card">
+			<article id={id} class="package card">
 				<div class="package__body">
 					<h3 class="package__title">{t(`packages.${id}.title`)}</h3>
 					<p class="package__text">{t(`packages.${id}.body`)}</p>
@@ -40,6 +40,10 @@ const packages = ['basic', 'full', 'corporate'] as const;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 		gap: 1.5rem;
+	}
+
+	.package {
+		scroll-margin-top: calc(var(--header-height, 72px) + 1rem);
 	}
 
 	.package__body {

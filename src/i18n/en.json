@@ -16,6 +16,12 @@
 	},
 	"footer": {
 		"tagline": "Playa Venao, Panama — an experience, not just a destination",
+		"playaVenao": "About Playa Venao",
+		"columns": {
+			"activities": "What we do",
+			"packages": "Packages",
+			"general": "General"
+		},
 		"phone": "+972-52-557-8355",
 		"phoneLabel": "Phone",
 		"copyright": "© 2026 Playa Venao Adventures. All rights reserved."
@@ -51,6 +57,43 @@
 		"title": "About Us",
 		"intro": "Playa Venao Adventures — your team for an authentic Panama vacation. We connect people, nature and experiences — without feeling like tourists.",
 		"body": "Playa Venao is more than a surf destination. It's an international community, a boho-chic beach vibe, and a lifestyle that blends work, adventure and rest. We're here to plan, book and care for everything — so you can simply be."
+	},
+	"playaVenaoPage": {
+		"metaTitle": "About Playa Venao",
+		"hero": {
+			"title": "Welcome to Playa Venao",
+			"subtitle": "Central America's hidden gem"
+		},
+		"sections": {
+			"welcome": {
+				"body": "Playa Venao is a unique tropical beach town in southern Azuero Peninsula, Panama, on the Pacific coast. It's one of Central America's most distinctive and fast-growing destinations, offering wild nature, open ocean, green hills and waterfalls — all in one location.\n\nUnlike large, crowded, commercial tourist hubs, Playa Venao keeps an authentic, simple, intimate feel. The town is built around one main road with easy access and short walks everywhere: from the sea and hills to restaurants, cafés, surf shops, an art studio, yoga and supermarkets. The slow pace and magnetic energy make many travelers come for a few days — and stay for weeks or months."
+			},
+			"atmosphere": {
+				"title": "Local atmosphere and vibe",
+				"body": "What makes Playa Venao special is true freedom and an open, communal vibe. People walk barefoot, surf at sunset, work on laptops facing the waves, and gather in beachfront bars in the evenings.\n\nThere's a perfect balance between slow, calm mornings in nature and vibrant social life — friendly nights, beach and pool parties, and live music. The town attracts an international mix of surfers, digital nomads, couples, families, creators and entrepreneurs. It's easy to connect, and you'll quickly feel at home — arriving as guests and leaving like family."
+			},
+			"nomads": {
+				"title": "Digital nomads and remote work",
+				"intro": "In recent years Playa Venao has become one of the world's most sought-after destinations for digital nomads and remote workers. High quality of life, tropical calm and relatively good internet draw people who want to run their business or job from the ocean.",
+				"items": {
+					"coworking": "Coworking and cafés: the area has coworking spaces and designed cafés suited for long laptop work sessions.",
+					"community": "Strong online community: an active social network of entrepreneurs, tech people, creators and creatives from around the world — quality networking alongside leisure.",
+					"lodging": "Long-stay lodging: beyond hostels and hotels, you'll find apartment complexes and surf camps offering comfortable stays for remote workers."
+				}
+			},
+			"weather": {
+				"title": "Weather and seasons in Playa Venao",
+				"intro": "Playa Venao enjoys tropical warm weather year-round, with pleasant summer-like temperatures almost always. The year has two main seasons:",
+				"items": {
+					"drySeason": "Dry season (December to April): the most popular tourist season — lots of sun, clear skies and perfect days for beach time, trips and local activities.",
+					"greenSeason": "Green / rainy season (May to November): nature comes alive and surrounding hills turn lush and wild. Despite rain, most days stay warm and pleasant for travel. Highly recommended for surfers thanks to bigger, quality waves and fewer crowds on the beach."
+				}
+			},
+			"culinary": {
+				"title": "Food, wellness and lifestyle",
+				"body": "Beyond surfing and scenery, Venao offers a diverse, surprisingly high-level culinary scene thanks to chefs and expats who settled here.\n\nGlobal flavors: modern Greek by the sea (Yaso), comforting Middle Eastern (Kolaus), homestyle local touches (Michala), plus fresh fish, pizza and sushi.\n\nHealthy living and wellness: the town promotes balance and wellbeing. Along the beach you'll find colorful açaí bowls (Sol), natural juices and plant-based menus. There are also yoga, pilates, fitness, breathwork workshops and ice baths in nature."
+			}
+		}
 	},
 	"lodging": {
 		"metaTitle": "Lodging Options",

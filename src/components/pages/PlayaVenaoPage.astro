@@ -1,0 +1,151 @@
+---
+import PageHero from '../PageHero.astro';
+import { playaVenaoBlocks } from '../../data/playaVenao';
+import { type Lang, useTranslations } from '../../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+function paragraphs(key: string): string[] {
+	return t(key).split('\n\n').filter(Boolean);
+}
+---
+
+<PageHero
+	title={t('playaVenaoPage.hero.title')}
+	subtitle={t('playaVenaoPage.hero.subtitle')}
+	image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
+	fullHeight={false}
+/>
+
+<section class="section">
+	<div class="container venao-blocks">
+		{playaVenaoBlocks.map(({ id, image, showTitle, listKeys }, index) => {
+			const sectionKey = `playaVenaoPage.sections.${id}`;
+			const bodyParagraphs = paragraphs(`${sectionKey}.body`);
+			const introParagraphs = paragraphs(`${sectionKey}.intro`);
+			const hasList = listKeys && listKeys.length > 0;
+
+			return (
+				<article class:list={['venao-block card', { 'venao-block--reversed': index % 2 === 1 }]}>
+					<div class="venao-block__image">
+						<img src={image} alt="" loading="lazy" />
+					</div>
+					<div class="venao-block__body">
+						{showTitle && (
+							<h2 class="venao-block__title">{t(`${sectionKey}.title`)}</h2>
+						)}
+						{bodyParagraphs.map((paragraph) => (
+							<p class="venao-block__text">{paragraph}</p>
+						))}
+						{introParagraphs.map((paragraph) => (
+							<p class="venao-block__text">{paragraph}</p>
+						))}
+						{hasList && (
+							<ul class="venao-block__list">
+								{listKeys.map((itemKey) => (
+									<li>{t(`${sectionKey}.items.${itemKey}`)}</li>
+								))}
+							</ul>
+						)}
+					</div>
+				</article>
+			);
+		})}
+	</div>
+</section>
+
+<style>
+	.venao-blocks {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		max-width: 56rem;
+		margin-inline: auto;
+	}
+
+	.venao-block {
+		display: grid;
+		grid-template-columns: 1fr 1.2fr;
+		overflow: hidden;
+		align-items: stretch;
+	}
+
+	.venao-block--reversed .venao-block__image {
+		order: 2;
+	}
+
+	.venao-block__image {
+		overflow: hidden;
+		line-height: 0;
+		background: var(--color-warm-bg, #f0ebe4);
+		min-height: 220px;
+	}
+
+	.venao-block__image img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		min-height: 220px;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.venao-block__body {
+		padding: 1.75rem 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.85rem;
+		justify-content: center;
+	}
+
+	.venao-block__title {
+		font-family: var(--font-display);
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--color-orange);
+		margin: 0 0 0.25rem;
+		line-height: 1.35;
+	}
+
+	.venao-block__text {
+		font-size: 1rem;
+		line-height: 1.85;
+		color: var(--color-text-muted);
+		margin: 0;
+	}
+
+	.venao-block__list {
+		list-style: disc;
+		padding-inline-start: 1.25rem;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.65rem;
+	}
+
+	.venao-block__list li {
+		font-size: 0.98rem;
+		line-height: 1.75;
+		color: var(--color-text-muted);
+	}
+
+	@media (max-width: 768px) {
+		.venao-block,
+		.venao-block--reversed {
+			grid-template-columns: 1fr;
+		}
+
+		.venao-block--reversed .venao-block__image {
+			order: 0;
+		}
+
+		.venao-block__body {
+			padding: 1.5rem;
+		}
+	}
+</style>
