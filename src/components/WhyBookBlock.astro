@@ -1,0 +1,135 @@
+---
+import { whyBookBenefitKeys } from '../data/whyBook';
+import { type Lang, useTranslations } from '../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+function splitBenefit(text: string): { title: string; body: string } {
+	const separator = text.includes(' – ') ? ' – ' : ' — ';
+	const index = text.indexOf(separator);
+	if (index === -1) return { title: text, body: '' };
+	return {
+		title: text.slice(0, index).trim(),
+		body: text.slice(index + separator.length).trim(),
+	};
+}
+---
+
+<section class="why-book section section--warm">
+	<div class="container">
+		<div class="why-book__intro-wrap">
+			<h2 class="why-book__title">{t('attractions.whyBook.title')}</h2>
+			<p class="why-book__tagline">{t('attractions.whyBook.tagline')}</p>
+
+			<div class="why-book__intro">
+				<p>{t('attractions.whyBook.intro')}</p>
+				<p>{t('attractions.whyBook.intro2')}</p>
+			</div>
+		</div>
+
+		<h3 class="why-book__subtitle">{t('attractions.whyBook.experienceTitle')}</h3>
+		<div class="why-book__grid">
+			{whyBookBenefitKeys.map((key) => {
+				const { title, body } = splitBenefit(t(`attractions.whyBook.benefits.${key}`));
+				return (
+					<article class="why-book__card card">
+						<h4 class="why-book__card-title">{title}</h4>
+						<p class="why-book__card-body">{body}</p>
+					</article>
+				);
+			})}
+		</div>
+	</div>
+</section>
+
+<style>
+	.why-book__intro-wrap {
+		max-width: 44rem;
+		margin-inline: auto;
+	}
+
+	.why-book__title {
+		font-family: var(--font-display);
+		font-size: clamp(1.5rem, 3.5vw, 2rem);
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 0.75rem;
+		color: var(--color-orange);
+	}
+
+	.why-book__tagline {
+		text-align: center;
+		font-size: 1.05rem;
+		font-weight: 600;
+		color: var(--color-text);
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.why-book__intro {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.why-book__intro p {
+		font-size: 1.05rem;
+		line-height: 1.85;
+		color: var(--color-text-muted);
+		margin: 0;
+	}
+
+	.why-book__subtitle {
+		font-family: var(--font-display);
+		font-size: 1.25rem;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 1.5rem;
+		color: var(--color-text);
+	}
+
+	.why-book__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+	}
+
+	@media (min-width: 768px) {
+		.why-book__grid {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.25rem;
+		}
+	}
+
+	.why-book__card {
+		padding: 1.15rem 1.2rem;
+		height: 100%;
+	}
+
+	@media (min-width: 768px) {
+		.why-book__card {
+			padding: 1.35rem 1.5rem;
+		}
+	}
+
+	.why-book__card-title {
+		font-size: 1rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		color: var(--color-orange);
+		line-height: 1.35;
+	}
+
+	.why-book__card-body {
+		font-size: 0.92rem;
+		line-height: 1.7;
+		color: var(--color-text-muted);
+		margin: 0;
+	}
+</style>

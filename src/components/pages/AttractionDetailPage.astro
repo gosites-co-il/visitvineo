@@ -1,5 +1,6 @@
 ---
 import PageHero from '../PageHero.astro';
+import WhyBookBlock from '../WhyBookBlock.astro';
 import { type AttractionId } from '../../data/attractions';
 import { type Lang, useTranslatedPath, useTranslations } from '../../i18n/ui';
 
@@ -13,6 +14,9 @@ const { lang, attractionId, heroImage } = Astro.props;
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const attractionsPath = translatePath('/attractions');
+const storyParagraphs = t(`attractions.activities.${attractionId}.story`).split('\n\n').filter(Boolean);
+const includesItems = t(`attractions.activities.${attractionId}.includes`).split('\n').filter(Boolean);
+const includesIsList = includesItems.length > 1;
 ---
 
 <PageHero
@@ -25,11 +29,30 @@ const attractionsPath = translatePath('/attractions');
 <section class="section">
 	<div class="container attraction-detail">
 		<h2 class="attraction-detail__heading">{t('attractions.storyLabel')}</h2>
-		<p class="attraction-detail__body">{t(`attractions.activities.${attractionId}.story`)}</p>
+		<div class="attraction-detail__story">
+			{storyParagraphs.map((paragraph) => (
+				<p class="attraction-detail__body">{paragraph}</p>
+			))}
+		</div>
 
 		<h2 class="attraction-detail__heading">{t('attractions.includesLabel')}</h2>
-		<p class="attraction-detail__includes">{t(`attractions.activities.${attractionId}.includes`)}</p>
+		{includesIsList ? (
+			<ul class="attraction-detail__list">
+				{includesItems.map((item) => (
+					<li>{item}</li>
+				))}
+			</ul>
+		) : (
+			<p class="attraction-detail__includes">{includesItems[0]}</p>
+		)}
 
+	</div>
+</section>
+
+<WhyBookBlock lang={lang} />
+
+<section class="section">
+	<div class="container attraction-detail__actions-wrap">
 		<div class="attraction-detail__actions">
 			<a href={translatePath('/contact')} class="btn btn--primary">{t('packages.cta')}</a>
 			<a href={attractionsPath} class="btn btn--secondary">{t('attractions.backToAttractions')}</a>
@@ -54,11 +77,18 @@ const attractionsPath = translatePath('/attractions');
 		margin-top: 2rem;
 	}
 
+	.attraction-detail__story {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		margin-bottom: 0;
+	}
+
 	.attraction-detail__body {
 		font-size: 1.1rem;
 		line-height: 1.9;
 		color: var(--color-text-muted);
-		margin-bottom: 0;
+		margin: 0;
 	}
 
 	.attraction-detail__includes {
@@ -68,10 +98,30 @@ const attractionsPath = translatePath('/attractions');
 		margin-bottom: 2.5rem;
 	}
 
+	.attraction-detail__list {
+		list-style: disc;
+		padding-inline-start: 1.5rem;
+		margin-bottom: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.attraction-detail__list li {
+		font-size: 1.05rem;
+		line-height: 1.8;
+		color: var(--color-text);
+	}
+
+	.attraction-detail__actions-wrap {
+		max-width: 44rem;
+		margin-inline: auto;
+	}
+
 	.attraction-detail__actions {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1rem;
-		margin-top: 2.5rem;
+		justify-content: center;
 	}
 </style>

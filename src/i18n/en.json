@@ -139,28 +139,43 @@
 		"includesLabel": "What's included",
 		"activities": {
 			"waterfalls": {
-				"title": "Waterfall Tours & 4x4 Adventures",
-				"short": "Hidden spots deep in Panama's jungles — refresh in cool natural pools.",
-				"story": "Our waterfall tours let you experience a completely different side of Panama. Much of the adventure is the journey itself — an exciting 4x4 ride along dirt trails and river crossings through lush tropical vegetation. We reach hidden waterfalls and natural pools deep in the Azuero Peninsula wilderness, far from crowded tourist routes. Swim in clear water, jump from the falls, and enjoy lunch and fresh fruit platters in the heart of the jungle.",
-				"includes": "4x4 transport, guided tour, cold drinks, coolers, fresh fruit and lunch in nature."
+				"title": "Waterfall Adventure | 4x4 Waterfall Tours",
+				"short": "Hidden spots deep in Panama's jungles",
+				"story": "Waterfall tours around Playa Venao let you experience a completely different side of Panama — jungle, rivers, off-road trails, natural pools and hidden waterfalls in the wild. Much of the experience is the journey itself: 4x4 rides along dirt paths, river crossings and open tropical scenery.\n\nTrips reach waterfalls and natural pools deeper in the Azuero Peninsula's wilderness, far from the main tourist areas. During the day you can swim in cool natural water, jump from the falls, enjoy lunch in nature and experience Panama in a much more authentic way.\n\nThe jeep ride itself becomes a central part of the adventure — especially for anyone who loves nature, off-road driving and wild landscapes.",
+				"includes": "4x4 off-road ride — an exciting drive along dirt trails and river crossings.\nWaterfalls and natural pools — reach hidden, cool spots deep in the jungle.\nLunch in nature — an authentic, filling meal in the tropical landscape.\nRefreshments — cold water, fresh fruit and coolers throughout the route.\nWater gear and floats — everything you need to enjoy the water and go with the flow (on some tours)."
 			},
 			"iguana": {
-				"title": "Isla Iguana Boat Tour",
-				"short": "Crystal turquoise water beside white sand — perfect for snorkeling and relaxation.",
-				"story": "Isla Iguana is a protected tropical island and nature reserve, one of the most beautiful and sought-after spots in the region. The experience begins with a boat ride along the wild coastline, where depending on the season you may see dolphins, sea turtles and even whales. On the island you'll find a true paradise with a magical Caribbean atmosphere — the best spot in the area for snorkeling thanks to clear water and rich coral reefs full of tropical fish.",
-				"includes": "Boat trip, full snorkeling gear, cold drinks, seasonal fruit and coolers for a perfect rest on the white beach."
+				"title": "Isla Iguana Tour",
+				"short": "A tropical island with turquoise water and snorkeling",
+				"story": "Isla Iguana is one of the most beautiful places on the Azuero Peninsula and one of the most sought-after attractions for travelers coming to Playa Venao. It's a protected tropical island with crystal turquoise water, white sand, wild nature and a wonderfully relaxed atmosphere.\n\nThe trip begins with a boat ride along Panama's coastline, where you may sometimes spot dolphins, sea turtles or whales depending on the season. Once on the island, visitors can swim in the clear water, snorkel with tropical fish, relax on the beach and take a short walk on the island itself. It's considered one of the best snorkeling spots in the area thanks to the clean water and protected marine environment.\n\nThe experience is perfect for couples, groups of friends and families looking for a calm day in real tropical nature.",
+				"includes": "Full snorkeling gear — for diving and watching tropical fish on the protected coral reef.\nBoat trip — a scenic sail along Panama's coast with chances to spot marine wildlife.\nLight refreshments — cold water, fresh fruit and coolers throughout the day.\nFree time in paradise — relax on white sand, swim in clear water or take a short walk on the island."
 			},
 			"fishing": {
-				"title": "Pacific Ocean Fishing Tours",
-				"short": "Head out to sea for a true local adventure — fish, relax and enjoy the ocean.",
-				"story": "Panama's Pacific is one of the world's top sport-fishing destinations. Our trips leave early in the morning when the sea is calm. With local captains who know the best spots, we head offshore for an authentic, exciting day on the water. Suitable for experienced anglers and complete beginners alike. Common catches include tuna, mahi-mahi, snapper and roosterfish.",
-				"includes": "Boat (up to 7 people), full professional fishing gear, local guides, soft drinks, beers, fruit, and professional cleaning of your catch at the end."
+				"title": "Fishing Tour",
+				"short": "Fishing trips around Playa Venao are one of the area's most special and popular experiences.",
+				"story": "Fishing trips around Playa Venao are one of the area's most special and popular experiences. Panama's Pacific is considered one of the world's best sport-fishing destinations, with a huge variety of fish and a true ocean experience. Trips usually leave early in the morning when the sea is calmer, and the adventure begins the moment you board the boat and watch the Venao coastline disappear behind you.\n\nTrips suit both complete beginners and more experienced anglers. During the day you head offshore with local guides who know the area and the best fishing spots. A special part of the experience is the open ocean — you may encounter dolphin pods and sometimes even whales in season.\n\nCold drinks, beers, fruit platters and coolers are served throughout the day for a relaxed, enjoyable time on the water. After returning to shore, your catch can be professionally cleaned. Trips are usually for small groups of up to seven people, for a more personal, comfortable experience.\n\nCommon catches in the area include tuna, mahi-mahi, snapper, roosterfish and more — drawing anglers from around the world to Panama.",
+				"includes": "Boat for groups up to 7, professional fishing gear, local guides, cold drinks, beers, fruit platters, coolers and professional cleaning of your catch."
 			},
 			"horses": {
-				"title": "Sunset Horseback Riding",
-				"short": "Ride through wild nature with open views — calm but unforgettable.",
-				"story": "Horseback riding around Playa Venao is the perfect way to connect with the area's slow, authentic rhythm. Our routes cross green hills, flowing rivers, hidden tropical trails and open coastline with stunning panoramic views of the ocean and mountains. Local guides tailor the ride to your level — even if you've never ridden before. The most popular option is an afternoon ride toward the sun setting into the Pacific.",
-				"includes": "Calm, well-trained horses, dedicated local guide, private transport, cold drinks and fresh fruit platters."
+				"title": "Horseback Riding | Ride Through Panama's Wild Nature",
+				"short": "Ride through wild nature with open panoramic views",
+				"story": "Horseback riding around Playa Venao is a special way to discover the local landscape at a calmer pace. Routes pass through open countryside, hills, rivers, tropical trails and sometimes along the coast, with wide views of the ocean and mountains.\n\nThe experience suits both beginners and experienced riders, usually with local guides who know the area well. Along the ride you see Panama in a quieter, more authentic way — away from roads and busy central areas.\n\nOne of the most popular options is a sunset ride, when the sun dropping over the ocean makes the experience even more peaceful and memorable.",
+				"includes": "Varied riding routes — green hills, flowing rivers, jungle trails and the coastline.\nProfessional guidance — experienced local guides who know the terrain.\nTransport and refreshments — private round-trip transport, cold water and fresh fruit platters.\nAll levels welcome — fully adapted for first-time riders in a safe, relaxed atmosphere."
+			}
+		},
+		"whyBook": {
+			"title": "Why Book With Playa Venao Adventures?",
+			"tagline": "We don't just offer an activity — we build a real local experience",
+			"intro": "Playa Venao Adventures connects travelers with the places, people and experiences that define the real Panama. Our main advantage is deep knowledge of the area and hidden spots fewer tourists reach. Instead of a generic tour, we focus on authentic experiences, personal service and simple, stress-free planning.",
+			"intro2": "Our goal is for you to arrive in Panama without headaches — and feel that someone on the ground has already taken care of the small details.",
+			"experienceTitle": "What you get with us",
+			"benefits": {
+				"guides": "Local guides — an experienced team who know the terrain, language and suppliers.",
+				"planning": "Easy, fast planning — you choose your trip; we handle the rest.",
+				"personalized": "Personalized experiences — pace and activities tailored to your preferences.",
+				"hiddenPlaces": "Access to special local spots — hidden corners and routes off the usual tourist map.",
+				"seaNature": "Sea, nature and adventure combined — everything Playa Venao has to offer in one trip.",
+				"personalSupport": "Personal support throughout your stay — we're available on the ground for your whole time in Panama."
 			}
 		}
 	},
