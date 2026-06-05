@@ -229,6 +229,8 @@
 		"flagshipTitle": "Our signature attractions",
 		"readMore": "Learn more",
 		"backToAttractions": "Back to adventures & attractions",
+		"orderFormTitle": "Booking form",
+		"orderFormIntro": "Fill in your details and we'll get back to you to confirm your booking.",
 		"shortLabel": "In brief",
 		"storyLabel": "The experience",
 		"includesLabel": "What's included",
@@ -274,22 +276,96 @@
 			}
 		}
 	},
-	"packages": {
+	"packagesPage": {
 		"metaTitle": "Vacation Packages",
-		"title": "Vacation Packages & Events",
-		"basic": {
-			"title": "Basic Vacation Package",
-			"body": "Includes lodging, trip planning and personalized transport options. Attractions booked separately based on weather."
+		"heroBadge": "CHOOSE YOUR EXPERIENCE",
+		"title": "Our Vacation Packages",
+		"heroSubtitle": "Tell us your style — we'll take care of the rest",
+		"intro": "At Playa Venao Adventures we believe your vacation should match your pace and vibe. We've put together a range of packages that handle everything from A to Z — so you can arrive with peace of mind, no headaches and no logistics stress.",
+		"listTitle": "Our ready-made vacation packages",
+		"readMore": "Learn more",
+		"backToPackages": "Back to packages",
+		"otherPackagesTitle": "More packages",
+		"storyLabel": "About this package",
+		"includesLabel": "What's included?",
+		"orderFormTitle": "Booking form",
+		"orderFormIntro": "Fill in your details and we'll get back to you to confirm your package.",
+		"cta": "Request a Quote",
+		"activities": {
+			"surfWellness": {
+				"title": "Surf & Wellness Package",
+				"short": "The perfect blend of wave adrenaline and a healthy, balanced lifestyle.",
+				"story": "A unique package for those who want to slow down, connect with nature and their body, and enjoy a full, deep beach experience.",
+				"includes": {
+					"lodging": "Tailored lodging at boutique hotels or beach resorts.",
+					"surfLessons": "Surf lessons (private or group) with our professional coaching team.",
+					"yoga": "Yoga sessions, body movement workshops and meditation.",
+					"recovery": "Recovery experiences including ice baths, breathwork and waterfall nature trips.",
+					"coworking": "Access to coworking spaces for those mixing remote work."
+				}
+			},
+			"surfPackage": {
+				"title": "Surf Package | Professional Surf Package",
+				"short": "Focus on the soul of Playa Venao — the waves are always waiting.",
+				"story": "A package fully focused on surfing and the lifestyle around it — ideal for beginners and advanced surfers who want to take their performance to the next level.",
+				"includes": {
+					"lodging": "Central, convenient lodging very close to the water (social hostels or surf camps).",
+					"course": "Comprehensive surf course with practical lessons and guided in-water technique training.",
+					"equipment": "Free use of surf equipment and board fitting throughout your stay.",
+					"video": "Optional professional video analysis and surf photography from the beach.",
+					"community": "Social life, a strong surf community and beach parties in the evenings."
+				}
+			},
+			"full": {
+				"title": "Full Experience | The Complete Premium Package",
+				"short": "The perfect trip for tasting everything at the highest level with zero effort.",
+				"story": "Our most comprehensive package — a true premium vacation from landing in Panama City until you head home.",
+				"includes": {
+					"flights": "Short domestic flights to Pedasi or premium private transfers.",
+					"lodging": "Premium lodging: private jungle villas or luxury waterfront resorts.",
+					"attractions": "Rich activity package (3-4 choices): 4x4 waterfall tours, iguana island sailing, ocean fishing and sunset horseback riding.",
+					"surf": "Guided surf lessons included in the package.",
+					"culinary": "Diverse dining options and meals at leading local beach restaurants."
+				}
+			},
+			"venao": {
+				"title": "Venao Experience | The Balanced Vacation",
+				"short": "Perfect balance of adventure, surfing and downtime to rest.",
+				"story": "Our classic, most popular package — experience Playa Venao in a varied way at a calm, relaxed pace.",
+				"includes": {
+					"shuttle": "Organized shuttle/transfer from Panama City to Playa Venao.",
+					"lodging": "Flexible lodging options to match your vibe.",
+					"activities": "2-3 guided field activities and attractions included.",
+					"surf": "Guided surf lessons on the main beach with local instructors."
+				}
+			},
+			"basic": {
+				"title": "Basic Escape | Freedom to Decide Last Minute",
+				"short": "Simple, easy and carefree — the most relaxed way to reach paradise.",
+				"story": "A basic package that handles essential logistics upfront, leaving you full freedom to choose activities on the ground based on mood and weather.",
+				"includes": {
+					"shuttle": "Organized shared shuttle from Panama City to the Azuero Peninsula.",
+					"lodging": "Flexible, comfortable lodging (all a short walk from the sea).",
+					"activities": "1-2 activities chosen in advance.",
+					"flexible": "Simple logistics planning — remaining trips and attractions booked separately after you arrive."
+				}
+			}
 		},
-		"full": {
-			"title": "Vacation Package with Attractions",
-			"body": "Includes lodging and a variety of attractions and tours throughout your stay."
-		},
-		"corporate": {
-			"title": "Corporate Events & Private Groups",
-			"body": "Custom company retreats combining workspaces, group lodging, private meals, team activities, beach parties and wellness workshops."
-		},
-		"cta": "Request a Quote"
+		"whyBook": {
+			"title": "Why Book Your Package With Us?",
+			"tagline": "Our goal isn't just an activity — it's building a real local experience",
+			"intro": "Playa Venao Adventures connects travelers with the places, people and experiences that define the real Panama. Our main advantage is deep knowledge of the area and hidden spots fewer tourists reach.",
+			"intro2": "We want you to arrive in Panama without the headache — feeling like someone has already handled every small detail on the ground.",
+			"experienceTitle": "What does the experience with us include?",
+			"benefits": {
+				"guides": "Local guides — an experienced team who knows the terrain, language and suppliers firsthand.",
+				"planning": "Easy, fast planning — you choose the vacation; we handle the rest.",
+				"personalized": "Personalized experiences — trip pace and activities tailored to your preferences.",
+				"hiddenPlaces": "Access to special places in the area — hidden corners off the usual tourist map.",
+				"seaNature": "The perfect blend of sea, nature and adventure — all of Playa Venao's worlds in one trip.",
+				"personalSupport": "Personal support throughout your stay — we're available on the ground for your entire time in Panama."
+			}
+		}
 	},
 	"eventsPage": {
 		"metaTitle": "Event Production",
@@ -441,6 +517,21 @@
 				"community": "Vibrant surf community"
 			}
 		}
+	},
+	"bookingForm": {
+		"name": "Full name",
+		"phone": "Phone",
+		"email": "Email",
+		"date": "Preferred date",
+		"people": "Number of people",
+		"submit": "Submit booking",
+		"activityLabel": "Activity",
+		"whatsappIntro": "Hi, I'd like to book:",
+		"whatsappName": "Name",
+		"whatsappPhone": "Phone",
+		"whatsappEmail": "Email",
+		"whatsappDate": "Date",
+		"whatsappPeople": "Number of people"
 	},
 	"contact": {
 		"metaTitle": "Contact",

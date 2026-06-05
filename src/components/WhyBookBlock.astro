@@ -6,12 +6,13 @@ import { type Lang, useTranslations } from '../i18n/ui';
 
 interface Props {
 	lang: Lang;
-	scope?: 'attractions' | 'surf';
+	scope?: 'attractions' | 'surf' | 'packages';
 }
 
 const { lang, scope = 'attractions' } = Astro.props;
 const t = useTranslations(lang);
-const whyBookKey = scope === 'surf' ? 'surfPage.whyBook' : 'attractions.whyBook';
+const whyBookKey =
+	scope === 'surf' ? 'surfPage.whyBook' : scope === 'packages' ? 'packagesPage.whyBook' : 'attractions.whyBook';
 
 function splitBenefit(text: string): { title: string; body: string } {
 	const separator = text.includes(' – ') ? ' – ' : ' — ';

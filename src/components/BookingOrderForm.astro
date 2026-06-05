@@ -1,0 +1,133 @@
+---
+import { type Lang, useTranslations } from '../i18n/ui';
+
+interface Props {
+	lang: Lang;
+	formId: string;
+	activityTitle: string;
+}
+
+const { lang, formId, activityTitle } = Astro.props;
+const t = useTranslations(lang);
+
+const labels = {
+	name: t('bookingForm.name'),
+	phone: t('bookingForm.phone'),
+	email: t('bookingForm.email'),
+	date: t('bookingForm.date'),
+	people: t('bookingForm.people'),
+	submit: t('bookingForm.submit'),
+	activityLabel: t('bookingForm.activityLabel'),
+	whatsappIntro: t('bookingForm.whatsappIntro'),
+	whatsappName: t('bookingForm.whatsappName'),
+	whatsappPhone: t('bookingForm.whatsappPhone'),
+	whatsappEmail: t('bookingForm.whatsappEmail'),
+	whatsappDate: t('bookingForm.whatsappDate'),
+	whatsappPeople: t('bookingForm.whatsappPeople'),
+};
+---
+
+<form class="booking-form card" id={formId} novalidate>
+	<div class="booking-form__field">
+		<label for={`${formId}-name`}>{labels.name}</label>
+		<input type="text" id={`${formId}-name`} name="name" required autocomplete="name" />
+	</div>
+	<div class="booking-form__field">
+		<label for={`${formId}-phone`}>{labels.phone}</label>
+		<input type="tel" id={`${formId}-phone`} name="phone" required autocomplete="tel" dir="ltr" />
+	</div>
+	<div class="booking-form__field">
+		<label for={`${formId}-email`}>{labels.email}</label>
+		<input type="email" id={`${formId}-email`} name="email" required autocomplete="email" dir="ltr" />
+	</div>
+	<div class="booking-form__row">
+		<div class="booking-form__field">
+			<label for={`${formId}-date`}>{labels.date}</label>
+			<input type="date" id={`${formId}-date`} name="date" required />
+		</div>
+		<div class="booking-form__field">
+			<label for={`${formId}-people`}>{labels.people}</label>
+			<input type="number" id={`${formId}-people`} name="people" min="1" max="99" required />
+		</div>
+	</div>
+	<button type="submit" class="btn btn--primary booking-form__submit">{labels.submit}</button>
+</form>
+
+<script define:vars={{ formId, activityTitle, labels }}>
+	const form = document.getElementById(formId);
+	const whatsappNumber = '972525578355';
+
+	form?.addEventListener('submit', (event) => {
+		event.preventDefault();
+		if (!(form instanceof HTMLFormElement) || !form.reportValidity()) return;
+
+		const data = new FormData(form);
+		const message = [
+			labels.whatsappIntro,
+			`${labels.activityLabel}: ${activityTitle}`,
+			`${labels.whatsappName}: ${data.get('name')}`,
+			`${labels.whatsappPhone}: ${data.get('phone')}`,
+			`${labels.whatsappEmail}: ${data.get('email')}`,
+			`${labels.whatsappDate}: ${data.get('date')}`,
+			`${labels.whatsappPeople}: ${data.get('people')}`,
+		].join('\n');
+
+		window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+	});
+</script>
+
+<style>
+	.booking-form {
+		padding: 1.75rem 2rem;
+		text-align: start;
+	}
+
+	.booking-form__row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.booking-form__field {
+		margin-bottom: 1.15rem;
+	}
+
+	.booking-form__field label {
+		display: block;
+		font-size: 0.875rem;
+		font-weight: 600;
+		margin-bottom: 0.4rem;
+	}
+
+	.booking-form__field input {
+		width: 100%;
+		padding: 0.75rem 1rem;
+		border: 1px solid rgba(0, 0, 0, 0.12);
+		border-radius: var(--radius-sm);
+		font-family: inherit;
+		font-size: 1rem;
+		transition: border-color var(--transition);
+		background: var(--color-bg);
+	}
+
+	.booking-form__field input:focus {
+		outline: none;
+		border-color: var(--color-orange);
+	}
+
+	.booking-form__submit {
+		width: 100%;
+		margin-top: 0.35rem;
+	}
+
+	@media (max-width: 520px) {
+		.booking-form {
+			padding: 1.5rem;
+		}
+
+		.booking-form__row {
+			grid-template-columns: 1fr;
+			gap: 0;
+		}
+	}
+</style>

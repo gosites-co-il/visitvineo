@@ -1,4 +1,5 @@
 ---
+import BookingOrderForm from '../BookingOrderForm.astro';
 import PageHero from '../PageHero.astro';
 import WhyBookBlock from '../WhyBookBlock.astro';
 import { type AttractionId } from '../../data/attractions';
@@ -28,14 +29,28 @@ const includesIsList = includesItems.length > 1;
 
 <section class="section">
 	<div class="container attraction-detail">
-		<h2 class="attraction-detail__heading">{t('attractions.storyLabel')}</h2>
-		<div class="attraction-detail__story">
-			{storyParagraphs.map((paragraph) => (
-				<p class="attraction-detail__body">{paragraph}</p>
-			))}
+		<div class="attraction-detail__main">
+			<div class="attraction-detail__content">
+				<h2 class="attraction-detail__heading">{t('attractions.storyLabel')}</h2>
+				<div class="attraction-detail__story">
+					{storyParagraphs.map((paragraph) => (
+						<p class="attraction-detail__body">{paragraph}</p>
+					))}
+				</div>
+			</div>
+
+			<aside class="attraction-detail__form">
+				<h2 class="attraction-detail__heading">{t('attractions.orderFormTitle')}</h2>
+				<p class="attraction-detail__form-intro">{t('attractions.orderFormIntro')}</p>
+				<BookingOrderForm
+					lang={lang}
+					formId={`attraction-booking-${attractionId}`}
+					activityTitle={t(`attractions.activities.${attractionId}.title`)}
+				/>
+			</aside>
 		</div>
 
-		<h2 class="attraction-detail__heading">{t('attractions.includesLabel')}</h2>
+		<h2 class="attraction-detail__heading attraction-detail__heading--includes">{t('attractions.includesLabel')}</h2>
 		{includesIsList ? (
 			<ul class="attraction-detail__list">
 				{includesItems.map((item) => (
@@ -45,7 +60,6 @@ const includesIsList = includesItems.length > 1;
 		) : (
 			<p class="attraction-detail__includes">{includesItems[0]}</p>
 		)}
-
 	</div>
 </section>
 
@@ -54,7 +68,6 @@ const includesIsList = includesItems.length > 1;
 <section class="section">
 	<div class="container attraction-detail__actions-wrap">
 		<div class="attraction-detail__actions">
-			<a href={translatePath('/contact')} class="btn btn--primary">{t('packages.cta')}</a>
 			<a href={attractionsPath} class="btn btn--secondary">{t('attractions.backToAttractions')}</a>
 		</div>
 	</div>
@@ -62,7 +75,21 @@ const includesIsList = includesItems.length > 1;
 
 <style>
 	.attraction-detail {
-		max-width: 44rem;
+		max-width: 56rem;
+		margin-inline: auto;
+	}
+
+	.attraction-detail__main {
+		display: grid;
+		grid-template-columns: 1fr minmax(280px, 340px);
+		gap: 2rem 2.5rem;
+		align-items: start;
+		margin-bottom: 2.5rem;
+	}
+
+	.attraction-detail__form {
+		position: sticky;
+		top: calc(var(--header-height, 72px) + 1.25rem);
 	}
 
 	.attraction-detail__heading {
@@ -73,8 +100,8 @@ const includesIsList = includesItems.length > 1;
 		color: var(--color-orange);
 	}
 
-	.attraction-detail__heading + .attraction-detail__heading {
-		margin-top: 2rem;
+	.attraction-detail__heading--includes {
+		margin-top: 0;
 	}
 
 	.attraction-detail__story {
@@ -113,6 +140,13 @@ const includesIsList = includesItems.length > 1;
 		color: var(--color-text);
 	}
 
+	.attraction-detail__form-intro {
+		font-size: 1rem;
+		line-height: 1.75;
+		color: var(--color-text-muted);
+		margin-bottom: 1.5rem;
+	}
+
 	.attraction-detail__actions-wrap {
 		max-width: 44rem;
 		margin-inline: auto;
@@ -123,5 +157,16 @@ const includesIsList = includesItems.length > 1;
 		flex-wrap: wrap;
 		gap: 1rem;
 		justify-content: center;
+	}
+
+	@media (max-width: 900px) {
+		.attraction-detail__main {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.attraction-detail__form {
+			position: static;
+		}
 	}
 </style>

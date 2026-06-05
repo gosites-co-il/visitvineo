@@ -108,6 +108,10 @@ p {
 	background: var(--color-bg-warm);
 }
 
+.section--sand {
+	background: color-mix(in srgb, var(--color-sand) 40%, var(--color-bg));
+}
+
 .display-heading {
 	font-family: var(--font-display);
 	font-weight: 700;

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PackageDetailPage from '../../components/pages/PackageDetailPage.astro';
+import { allPackageSlugs, getPackageBySlug } from '../../data/packages';
+import { useTranslations } from '../../i18n/ui';
+
+export function getStaticPaths() {
+	return allPackageSlugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const pkg = getPackageBySlug(slug!);
+
+if (!pkg) {
+	return Astro.redirect('/packages');
+}
+
+const t = useTranslations('he');
+const currentPath = `/packages/${slug}`;
+---
+
+<BaseLayout
+	lang="he"
+	currentPath={currentPath}
+	title={`${t(`packagesPage.activities.${pkg.id}.title`)} | Playa Venao Adventures`}
+>
+	<PackageDetailPage lang="he" packageId={pkg.id} heroImage={pkg.image} />
+</BaseLayout>

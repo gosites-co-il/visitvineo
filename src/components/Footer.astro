@@ -1,5 +1,5 @@
 ---
-import { footerPackageIds } from '../data/footer';
+import { vacationPackages } from '../data/packages';
 import { type Lang, useTranslatedPath, useTranslations } from '../i18n/ui';
 
 interface Props {
@@ -20,9 +20,9 @@ const activityLinks = [
 	{ label: t('nav.events'), href: translatePath('/events') },
 ];
 
-const packageLinks = footerPackageIds.map((id) => ({
-	label: t(`packages.${id}.title`),
-	href: `${translatePath('/packages')}#${id}`,
+const packageLinks = vacationPackages.map(({ id, slug }) => ({
+	label: t(`packagesPage.activities.${id}.title`),
+	href: translatePath(`/packages/${slug}`),
 }));
 
 const generalLinks = [

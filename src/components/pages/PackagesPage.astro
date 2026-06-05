@@ -1,5 +1,8 @@
 ---
 import PageHero from '../PageHero.astro';
+import EventCategoryCard from '../EventCategoryCard.astro';
+import WhyBookBlock from '../WhyBookBlock.astro';
+import { vacationPackages } from '../../data/packages';
 import { type Lang, useTranslatedPath, useTranslations } from '../../i18n/ui';
 
 interface Props {
@@ -9,65 +12,80 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
-
-const packages = ['basic', 'full', 'corporate'] as const;
 ---
 
 <PageHero
-	title={t('packages.title')}
+	badge={t('packagesPage.heroBadge')}
+	title={t('packagesPage.title')}
+	subtitle={t('packagesPage.heroSubtitle')}
 	image="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80"
 	fullHeight={false}
 />
 
 <section class="section">
-	<div class="container packages">
-		{packages.map((id) => (
-			<article id={id} class="package card">
-				<div class="package__body">
-					<h3 class="package__title">{t(`packages.${id}.title`)}</h3>
-					<p class="package__text">{t(`packages.${id}.body`)}</p>
-					<a href={translatePath('/contact')} class="btn btn--primary package__cta">
-						{t('packages.cta')}
-					</a>
-				</div>
-			</article>
-		))}
+	<div class="container packages-intro">
+		<p class="packages-intro__text">{t('packagesPage.intro')}</p>
+	</div>
+</section>
+
+<section class="section section--warm">
+	<div class="container">
+		<h2 class="section-heading">{t('packagesPage.listTitle')}</h2>
+
+		<div class="packages-list">
+			{vacationPackages.map(({ id, slug, image }) => (
+				<EventCategoryCard
+					href={translatePath(`/packages/${slug}`)}
+					title={t(`packagesPage.activities.${id}.title`)}
+					excerpt={t(`packagesPage.activities.${id}.short`)}
+					image={image}
+					readMore={t('packagesPage.readMore')}
+				/>
+			))}
+		</div>
+	</div>
+</section>
+
+<WhyBookBlock lang={lang} scope="packages" />
+
+<section class="section packages-cta">
+	<div class="container packages-cta__inner">
+		<a href={translatePath('/contact')} class="btn btn--primary">{t('packagesPage.cta')}</a>
 	</div>
 </section>
 
 <style>
-	.packages {
+	.packages-intro {
+		max-width: 44rem;
+		margin-inline: auto;
+		text-align: center;
+	}
+
+	.packages-intro__text {
+		font-size: 1.15rem;
+		line-height: 1.9;
+		color: var(--color-text-muted);
+	}
+
+	.packages-list {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-		gap: 1.5rem;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.25rem;
+		margin-top: 2rem;
+		align-items: stretch;
 	}
 
-	.package {
-		scroll-margin-top: calc(var(--header-height, 72px) + 1rem);
-	}
-
-	.package__body {
-		padding: 2rem;
-		display: flex;
-		flex-direction: column;
+	.packages-list :global(.side-card) {
 		height: 100%;
 	}
 
-	.package__title {
-		font-size: 1.25rem;
-		font-weight: 700;
-		margin-bottom: 1rem;
-		color: var(--color-orange);
+	.packages-cta__inner {
+		text-align: center;
 	}
 
-	.package__text {
-		flex: 1;
-		color: var(--color-text-muted);
-		line-height: 1.8;
-		margin-bottom: 1.5rem;
-	}
-
-	.package__cta {
-		align-self: flex-start;
+	@media (max-width: 639px) {
+		.packages-list {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>
